@@ -3,813 +3,481 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Family Hub på Plurima — Alt til familielivet. Ét sted.</title>
+    <title>Family Hub på Plurima</title>
     <meta
       name="description"
       content="Family Hub på Plurima samler kalender, madplan, opgaver og indkøb i én enkel hub. Nu på App Store og Google Play."
     />
 
     <style>
-      :root {
-        --bg: #eef2ff;
-        --card: rgba(255, 255, 255, 0.72);
-        --border: rgba(255, 255, 255, 0.6);
-        --text: #0f172a;
-        --muted: rgba(15, 23, 42, 0.62);
-        --shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
-        --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.10);
-        --radius-xl: 28px;
-        --radius-2xl: 34px;
-        --radius-3xl: 44px;
-        --accent: #0f172a;
+      :root{
+        --bg:#0b0c10;
+        --bg2:#0f1220;
+        --text:#f5f7ff;
+        --muted:rgba(245,247,255,.68);
+        --hair:rgba(255,255,255,.10);
+        --glass:rgba(255,255,255,.06);
+        --glass2:rgba(255,255,255,.10);
+        --shadow: 0 40px 120px rgba(0,0,0,.55);
+        --radius: 28px;
       }
-
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-          "Apple Color Emoji", "Segoe UI Emoji";
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: radial-gradient(1200px 700px at 20% 10%, rgba(99,102,241,.22), transparent 60%),
+                    radial-gradient(1000px 700px at 80% 20%, rgba(59,130,246,.18), transparent 60%),
+                    radial-gradient(1000px 700px at 55% 90%, rgba(249,115,22,.12), transparent 60%),
+                    linear-gradient(180deg, var(--bg), var(--bg2));
         color: var(--text);
-        background: var(--bg);
-        overflow-x: hidden;
+        overflow-x:hidden;
       }
-
-      a { color: inherit; text-decoration: none; }
-
-      .bg-blobs {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: 0;
-      }
-      .blob {
-        position: absolute;
-        border-radius: 999px;
-        filter: blur(48px);
-        opacity: 0.25;
-      }
-      .blob.b1 { width: 420px; height: 420px; left: -140px; top: -140px; background: #60a5fa; }
-      .blob.b2 { width: 520px; height: 520px; right: -180px; top: 140px; background: #a78bfa; }
-      .blob.b3 { width: 560px; height: 560px; left: 30%; bottom: -240px; background: #fb923c; opacity: 0.18; }
-
-      .wrap {
-        position: relative;
-        z-index: 1;
-        max-width: 1120px;
+      a{color:inherit; text-decoration:none}
+      .wrap{
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 22px 16px 64px;
+        padding: 28px 18px 80px;
       }
 
-      /* Header */
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding-top: 6px;
+      /* Top bar */
+      .top{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
       }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        min-width: 0;
       }
-      .logo {
-        width: 44px;
-        height: 44px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.78);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-soft);
-        display: grid;
-        place-items: center;
+      .mark{
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+        border: 1px solid var(--hair);
+        box-shadow: 0 14px 40px rgba(0,0,0,.35);
+        display:grid;
+        place-items:center;
         font-weight: 900;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.03em;
       }
-      .brand small {
-        display: block;
-        font-size: 11px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.28em;
-        color: rgba(15,23,42,0.55);
-      }
-      .brand strong {
-        display: block;
-        font-size: 14px;
+      .brand .name{
         font-weight: 800;
-        color: rgba(15,23,42,0.82);
-        margin-top: 2px;
-      }
-
-      .header-cta { display: flex; gap: 10px; align-items: center; }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 16px;
-        border-radius: 18px;
-        font-size: 12px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        border: 1px solid transparent;
-        transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
-        user-select: none;
-        cursor: pointer;
+        letter-spacing: -0.02em;
+        color: rgba(245,247,255,.92);
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      .btn:active { transform: scale(0.97); }
-      .btn.primary {
-        background: var(--accent);
-        color: white;
-        box-shadow: var(--shadow-soft);
+      .nav{
+        display:flex;
+        align-items:center;
+        gap:10px;
       }
-      .btn.primary:hover { background: #111c33; }
-      .btn.secondary {
-        background: rgba(255,255,255,0.85);
-        border-color: var(--border);
-        box-shadow: var(--shadow-soft);
+      .link{
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: rgba(245,247,255,.72);
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        transition: all .2s ease;
       }
-      .btn.secondary:hover { background: rgba(255,255,255,0.95); }
+      .link:hover{
+        border-color: var(--hair);
+        background: rgba(255,255,255,.04);
+      }
 
       /* Hero */
-      .hero {
-        margin-top: 26px;
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 18px;
+      .hero{
+        margin-top: 70px;
+        display:grid;
+        grid-template-columns: 1.25fr .75fr;
+        gap: 28px;
         align-items: start;
       }
-      @media (max-width: 980px) {
-        .hero { grid-template-columns: 1fr; }
+      @media (max-width: 980px){
+        .hero{grid-template-columns: 1fr; margin-top: 56px}
       }
 
-      .pills { display: flex; flex-wrap: wrap; gap: 8px; }
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 7px 10px;
+      .kicker{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        padding: 10px 14px;
         border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255,255,255,0.65);
-        box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
-        font-size: 11px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: rgba(15,23,42,0.75);
+        border: 1px solid var(--hair);
+        background: rgba(255,255,255,.04);
+        color: rgba(245,247,255,.78);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .08em;
+      }
+      .dot{
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        background: rgba(34,197,94,.9);
+        box-shadow: 0 0 0 6px rgba(34,197,94,.18);
       }
 
-      h1 {
-        margin: 16px 0 0;
-        font-size: 52px;
+      h1{
+        margin: 18px 0 0;
+        font-size: clamp(38px, 5vw, 64px);
         line-height: 1.02;
-        letter-spacing: -0.04em;
-        font-weight: 950;
+        letter-spacing: -0.05em;
+        font-weight: 900;
       }
-      @media (max-width: 560px) { h1 { font-size: 40px; } }
-      .sub {
+      .sub{
         margin-top: 14px;
-        max-width: 720px;
+        max-width: 640px;
         font-size: 18px;
         line-height: 1.6;
-        color: rgba(15,23,42,0.68);
-      }
-      .note {
-        margin-top: 12px;
-        font-size: 12px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: rgba(15,23,42,0.55);
+        color: var(--muted);
       }
 
-      /* Glass cards */
-      .glass {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-3xl);
+      .cta{
+        margin-top: 20px;
+        display:flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items:center;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        padding: 14px 16px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        border: 1px solid transparent;
+        transition: transform .15s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+        user-select:none;
+      }
+      .btn:active{transform: scale(.98)}
+      .btn.primary{
+        background: rgba(245,247,255,.92);
+        color: #0b0c10;
+        box-shadow: 0 22px 70px rgba(0,0,0,.45);
+      }
+      .btn.primary:hover{opacity:.95}
+      .btn.ghost{
+        border-color: var(--hair);
+        background: rgba(255,255,255,.04);
+        color: rgba(245,247,255,.9);
+      }
+      .btn.ghost:hover{background: rgba(255,255,255,.06)}
+
+      .fine{
+        margin-top: 14px;
+        font-size: 12px;
+        color: rgba(245,247,255,.55);
+        font-weight: 700;
+        letter-spacing: .02em;
+      }
+
+      /* Preview */
+      .card{
+        border-radius: var(--radius);
+        border: 1px solid var(--hair);
+        background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
         box-shadow: var(--shadow);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
+        overflow:hidden;
       }
-
-      .mock {
-        padding: 16px;
+      .preview{
+        padding: 18px;
       }
-      .mock-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
+      .frame{
+        border-radius: 22px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: radial-gradient(900px 400px at 40% 10%, rgba(255,255,255,.08), transparent 55%),
+                    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+        padding: 18px;
       }
-      .mock-top .timeblock {
-        display: grid;
-        gap: 3px;
-      }
-      .mock-top .timeblock span {
-        font-size: 11px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.22em;
-        color: rgba(15,23,42,0.55);
-      }
-      .mock-top .chips { display: flex; gap: 8px; }
-      .chip {
-        padding: 10px 14px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.85);
-        border: 1px solid var(--border);
-        box-shadow: 0 10px 18px rgba(15,23,42,0.06);
-        font-size: 11px;
-        font-weight: 950;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: rgba(15,23,42,0.85);
-      }
-
-      .mock-grid { margin-top: 14px; display: grid; gap: 12px; }
-      .widget {
-        border-radius: var(--radius-2xl);
-        border: 1px solid rgba(255,255,255,0.62);
-        background: rgba(255,255,255,0.70);
-        overflow: hidden;
-        position: relative;
-        padding: 16px;
-        box-shadow: 0 10px 24px rgba(15,23,42,0.08);
-      }
-      .widget .grad {
-        position: absolute; inset: 0; opacity: 0.55;
-        background: linear-gradient(135deg, transparent, transparent);
-      }
-      .widget.blue .grad { background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(168,85,247,0.10)); }
-      .widget.orange .grad { background: linear-gradient(135deg, rgba(249,115,22,0.10), rgba(239,68,68,0.10)); }
-      .widget.green .grad { background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(16,185,129,0.10)); }
-
-      .widget .content { position: relative; }
-      .w-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-      .w-head h3 { margin: 0; font-size: 18px; font-weight: 950; letter-spacing: -0.02em; }
-      .badge {
-        font-size: 10px;
-        font-weight: 950;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(59,130,246,0.10);
-        border: 1px solid rgba(59,130,246,0.18);
-        color: rgba(37,99,235,0.92);
-        white-space: nowrap;
-      }
-      .empty {
-        margin-top: 12px;
-        border-radius: 18px;
-        padding: 16px;
-        text-align: center;
-        border: 2px dashed rgba(15,23,42,0.14);
-        background: rgba(255,255,255,0.55);
-        color: rgba(15,23,42,0.38);
+      .miniTop{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:12px;
+        color: rgba(245,247,255,.70);
         font-weight: 800;
-        font-style: italic;
-      }
-      .w-foot {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: 900;
-        color: rgba(15,23,42,0.68);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .two {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-      @media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
-
-      .w-sub {
-        margin-top: 10px;
-        font-size: 11px;
-        font-weight: 950;
+        letter-spacing: .12em;
         text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: rgba(249,115,22,0.88);
+        font-size: 10px;
       }
-      .meal {
-        margin-top: 6px;
-        font-size: 18px;
-        font-weight: 950;
-        letter-spacing: -0.02em;
-      }
-
-      .avatars { display: flex; justify-content: space-between; margin-top: 14px; gap: 10px; }
-      .av {
-        width: 42px; height: 42px; border-radius: 999px;
-        background: rgba(255,255,255,0.92);
-        border: 1px solid rgba(15,23,42,0.10);
-        box-shadow: 0 10px 18px rgba(15,23,42,0.08);
-        display: grid; place-items: center;
-        font-weight: 950;
-      }
-      .bar {
-        margin-top: 12px;
-        height: 10px;
+      .chips{display:flex; gap:8px}
+      .chip{
+        padding: 10px 12px;
         border-radius: 999px;
-        background: rgba(255,255,255,0.72);
-        overflow: hidden;
-        border: 1px solid rgba(15,23,42,0.08);
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.05);
       }
-      .bar > div { height: 100%; width: 66%; background: rgba(34,197,94,0.85); }
-
-      .apps {
-        margin-top: 12px;
-        border-radius: var(--radius-2xl);
-        border: 1px solid rgba(255,255,255,0.62);
-        background: rgba(255,255,255,0.68);
-        padding: 14px;
-      }
-      .apps h4 {
-        margin: 0;
-        font-size: 11px;
-        font-weight: 950;
-        text-transform: uppercase;
-        letter-spacing: 0.22em;
-        color: rgba(15,23,42,0.55);
-      }
-      .appgrid {
-        margin-top: 12px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+      .blocks{
+        margin-top: 16px;
+        display:grid;
         gap: 10px;
       }
-      .app {
-        padding: 12px 10px;
+      .block{
         border-radius: 18px;
-        background: rgba(255,255,255,0.65);
-        border: 1px solid rgba(255,255,255,0.62);
-        text-align: center;
-        box-shadow: 0 10px 18px rgba(15,23,42,0.06);
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.05);
+        padding: 14px;
       }
-      .app .i { font-size: 18px; }
-      .app .l {
-        margin-top: 8px;
+      .blockTitle{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+      .badge{
         font-size: 10px;
-        font-weight: 950;
+        font-weight: 900;
+        letter-spacing: .18em;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: rgba(15,23,42,0.68);
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(99,102,241,.25);
+        background: rgba(99,102,241,.12);
+        color: rgba(199,210,254,.95);
       }
+      .empty{
+        margin-top: 10px;
+        padding: 14px;
+        text-align:center;
+        border-radius: 16px;
+        border: 1px dashed rgba(255,255,255,.16);
+        color: rgba(245,247,255,.45);
+        font-style: italic;
+        font-weight: 800;
+      }
+      .apps{
+        margin-top: 10px;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+      .app{
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.05);
+        padding: 10px 8px;
+        text-align:center;
+      }
+      .app b{
+        display:block;
+        margin-top: 7px;
+        font-size: 9px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: rgba(245,247,255,.62);
+        font-weight: 900;
+      }
+      .app span{font-size: 16px}
 
-      /* Sections */
-      .section { margin-top: 44px; }
-      .eyebrow {
-        font-size: 11px;
-        font-weight: 950;
-        text-transform: uppercase;
-        letter-spacing: 0.28em;
-        color: rgba(15,23,42,0.55);
+      /* Section */
+      .section{
+        margin-top: 80px;
+        padding-top: 10px;
       }
-      h2 {
-        margin: 10px 0 0;
-        font-size: 34px;
-        line-height: 1.1;
+      .headline{
+        font-size: 28px;
         letter-spacing: -0.03em;
-        font-weight: 950;
+        font-weight: 900;
       }
-      .desc {
-        margin-top: 12px;
-        font-size: 16px;
+      .lead{
+        margin-top: 10px;
+        max-width: 760px;
+        color: var(--muted);
         line-height: 1.7;
-        color: rgba(15,23,42,0.68);
-        max-width: 840px;
       }
-
-      .cards {
-        margin-top: 16px;
-        display: grid;
+      .grid{
+        margin-top: 18px;
+        display:grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
       }
-      @media (max-width: 980px) { .cards { grid-template-columns: 1fr; } }
-
-      .card {
+      @media (max-width: 980px){ .grid{grid-template-columns: 1fr} }
+      .tile{
+        border-radius: 22px;
+        border: 1px solid var(--hair);
+        background: rgba(255,255,255,.04);
         padding: 18px;
-        border-radius: var(--radius-2xl);
-        background: rgba(255,255,255,0.70);
-        border: 1px solid rgba(255,255,255,0.62);
-        box-shadow: 0 12px 26px rgba(15,23,42,0.08);
-        position: relative;
-        overflow: hidden;
       }
-      .card .shine {
-        position: absolute; inset: 0; opacity: .55;
-        background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(168,85,247,0.10));
+      .tile h3{
+        margin:0;
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
       }
-      .card.orange .shine { background: linear-gradient(135deg, rgba(249,115,22,0.10), rgba(239,68,68,0.10)); }
-      .card.green .shine { background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(16,185,129,0.10)); }
-      .card.rose .shine { background: linear-gradient(135deg, rgba(244,63,94,0.10), rgba(236,72,153,0.10)); }
-
-      .card .inner { position: relative; }
-      .card h3 { margin: 0; font-size: 18px; font-weight: 950; letter-spacing: -0.02em; }
-      .card p { margin: 10px 0 0; color: rgba(15,23,42,0.68); line-height: 1.6; }
-
-      .panel {
-        margin-top: 16px;
-        padding: 18px;
-        border-radius: var(--radius-2xl);
-        background: rgba(255,255,255,0.72);
-        border: 1px solid rgba(255,255,255,0.62);
-        box-shadow: 0 12px 26px rgba(15,23,42,0.08);
-      }
-      .panel p { margin: 0; line-height: 1.7; color: rgba(15,23,42,0.70); }
-      .panel b { color: rgba(15,23,42,0.92); }
-
-      .divider {
-        height: 1px;
-        margin: 42px 0;
-        background: linear-gradient(to right, transparent, rgba(15,23,42,0.14), transparent);
+      .tile p{
+        margin: 8px 0 0;
+        color: rgba(245,247,255,.62);
+        line-height: 1.65;
       }
 
-      /* Feature list */
-      .feature-grid {
-        margin-top: 16px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      @media (max-width: 980px) { .feature-grid { grid-template-columns: 1fr; } }
-
-      .ft {
-        padding: 18px;
-        border-radius: var(--radius-2xl);
-        background: rgba(255,255,255,0.70);
-        border: 1px solid rgba(255,255,255,0.62);
-        box-shadow: 0 12px 26px rgba(15,23,42,0.08);
-        position: relative;
-        overflow: hidden;
-      }
-      .ft .shine {
-        position: absolute; inset: 0; opacity: .55;
-        background: linear-gradient(135deg, rgba(99,102,241,0.10), rgba(14,165,233,0.10));
-      }
-      .ft.orange .shine { background: linear-gradient(135deg, rgba(249,115,22,0.10), rgba(239,68,68,0.10)); }
-      .ft.green .shine { background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(16,185,129,0.10)); }
-      .ft.amber .shine { background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(250,204,21,0.10)); }
-      .ft.rose .shine { background: linear-gradient(135deg, rgba(244,63,94,0.10), rgba(236,72,153,0.10)); }
-      .ft.purple .shine { background: linear-gradient(135deg, rgba(168,85,247,0.10), rgba(217,70,239,0.10)); }
-
-      .ft .inner { position: relative; display: flex; gap: 12px; align-items: flex-start; }
-      .icon {
-        width: 46px; height: 46px; border-radius: 18px;
-        background: rgba(255,255,255,0.85);
-        border: 1px solid rgba(15,23,42,0.08);
-        box-shadow: 0 10px 18px rgba(15,23,42,0.08);
-        display: grid; place-items: center;
-        font-size: 20px;
-        flex: 0 0 auto;
-      }
-      .ft h3 { margin: 2px 0 0; font-size: 18px; font-weight: 950; }
-      .ft p { margin: 8px 0 0; color: rgba(15,23,42,0.68); line-height: 1.6; }
-
-      /* Download CTA */
-      .cta {
-        padding: 24px;
-        border-radius: 44px;
-        background: rgba(255,255,255,0.78);
-        border: 1px solid rgba(255,255,255,0.62);
-        box-shadow: var(--shadow);
-      }
-      .cta-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .cta h2 { margin: 0; font-size: 36px; }
-      .cta p { margin: 10px 0 0; color: rgba(15,23,42,0.68); line-height: 1.7; max-width: 760px; }
-
-      .footer {
-        margin-top: 22px;
-        text-align: center;
+      /* Footer */
+      footer{
+        margin-top: 70px;
+        padding-top: 26px;
+        border-top: 1px solid rgba(255,255,255,.08);
+        color: rgba(245,247,255,.52);
         font-size: 12px;
-        color: rgba(15,23,42,0.55);
         font-weight: 700;
+      }
+      .footRow{
+        display:flex;
+        justify-content:space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items:center;
       }
     </style>
   </head>
 
   <body>
-    <div class="bg-blobs" aria-hidden="true">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-      <div class="blob b3"></div>
-    </div>
-
     <div class="wrap">
-      <header class="header">
+      <div class="top">
         <div class="brand">
-          <div class="logo">PH</div>
-          <div>
-            <small>Family Hub på Plurima</small>
-            <strong>Alt til familielivet. Ét sted.</strong>
-          </div>
+          <div class="mark">PH</div>
+          <div class="name">Family Hub på Plurima</div>
         </div>
-
-        <div class="header-cta">
-          <a class="btn secondary" href="#funktioner">Se funktioner</a>
-          <a class="btn primary" href="#download">Hent appen</a>
-        </div>
-      </header>
+        <nav class="nav">
+          <a class="link" href="#hvorfor">Hvorfor</a>
+          <a class="link" href="#download">Download</a>
+        </nav>
+      </div>
 
       <section class="hero">
         <div>
-          <div class="pills">
-            <span class="pill">Kalender</span>
-            <span class="pill">Madplan</span>
-            <span class="pill">Opgaver</span>
-            <span class="pill">Indkøb</span>
-            <span class="pill">Skole</span>
-            <span class="pill">Ønsker</span>
-            <span class="pill">Aktivitet</span>
-            <span class="pill">Historie</span>
-          </div>
+          <div class="kicker"><span class="dot"></span> Nu på App Store & Google Play</div>
 
-          <h1>
-            Stop med at hoppe mellem apps.
-            <span style="display:block; color: rgba(15,23,42,0.78)">Samle familien ét sted.</span>
-          </h1>
+          <h1>Familielogistik.<br />Perfekt samlet.</h1>
 
           <p class="sub">
-            <b>Family Hub på Plurima</b> er jeres fælles kontroltårn: aftaler, madplan, opgaver og indkøb – samlet,
-            simpelt og flot. Mindre koordinering. Mere ro. Mere tid sammen.
+            Kalender, madplan, opgaver, indkøb, skole, ønsker og familie-aktivitet —
+            samlet i én rolig hub, alle forstår. Ingen støj. Bare overblik.
           </p>
 
-          <div style="margin-top: 16px; display:flex; gap: 10px; flex-wrap: wrap;">
-            <a class="btn primary" href="#download">Hent appen</a>
-            <a class="btn secondary" href="#why">Hvorfor den ændrer alt</a>
+          <div class="cta">
+            <!-- Sæt dine rigtige links ind her -->
+            <a class="btn primary" href="#" target="_blank" rel="noopener">App Store</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Google Play</a>
           </div>
 
-          <div class="note">Nu på App Store og Google Play</div>
-        </div>
-
-        <aside class="glass mock" aria-label="Forhåndsvisning af dashboard">
-          <div class="mock-top">
-            <div class="timeblock">
-              <span>Tirsdag</span>
-              <span>16:36</span>
-            </div>
-            <div class="chips">
-              <div class="chip">Hjælp</div>
-              <div class="chip">Indstillinger</div>
-            </div>
-          </div>
-
-          <div class="mock-grid">
-            <div class="widget blue">
-              <div class="grad"></div>
-              <div class="content">
-                <div class="w-head">
-                  <h3>Aftaler</h3>
-                  <span class="badge">0 i dag</span>
-                </div>
-                <div class="empty">Ingen planer – slap af!</div>
-                <div class="w-foot">Åbn Kalender <span style="opacity:.55">→</span></div>
-              </div>
-            </div>
-
-            <div class="two">
-              <div class="widget orange">
-                <div class="grad"></div>
-                <div class="content">
-                  <div class="w-head">
-                    <h3>Madplan</h3>
-                  </div>
-                  <div class="w-sub">I aften</div>
-                  <div class="meal">Hakkebøf med bløde løg, skysovs og kogte kartofler</div>
-                </div>
-              </div>
-
-              <div class="widget green">
-                <div class="grad"></div>
-                <div class="content">
-                  <div class="w-head">
-                    <h3>Opgaver</h3>
-                  </div>
-                  <div class="avatars">
-                    <div class="av">K</div>
-                    <div class="av">S</div>
-                    <div class="av">•</div>
-                  </div>
-                  <div class="bar"><div></div></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="apps">
-              <h4>Apps & værktøjer</h4>
-              <div class="appgrid">
-                <div class="app"><div class="i">📅</div><div class="l">Kalender</div></div>
-                <div class="app"><div class="i">🍽️</div><div class="l">Madplan</div></div>
-                <div class="app"><div class="i">✅</div><div class="l">Opgaver</div></div>
-                <div class="app"><div class="i">🛒</div><div class="l">Indkøb</div></div>
-                <div class="app"><div class="i">🎓</div><div class="l">Skole</div></div>
-                <div class="app"><div class="i">⭐</div><div class="l">Ønsker</div></div>
-                <div class="app"><div class="i">✨</div><div class="l">Aktivitet</div></div>
-                <div class="app"><div class="i">⚡</div><div class="l">Historie</div></div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top:10px; text-align:center; font-size:12px; color: rgba(15,23,42,0.55); font-weight:700;">
-            Enkel, sofistikeret — perfekt til tablet “wall mode”.
-          </div>
-        </aside>
-      </section>
-
-      <div class="divider"></div>
-
-      <section id="why" class="section">
-        <div class="eyebrow">Hvorfor</div>
-        <h2>Den stille ændring i hverdagen, du mærker allerede i uge 1</h2>
-        <p class="desc">
-          Familier falder ikke fra hinanden på de store ting – men på de små: “Hvem henter?”, “Hvad skal vi spise?”,
-          “Hvem gør hvad?”. Family Hub på Plurima samler alt det, der ellers larmer, og gør det overskueligt.
-        </p>
-
-        <div class="cards">
-          <div class="card">
-            <div class="shine"></div>
-            <div class="inner">
-              <h3>🧠 Mindre mental load</h3>
-              <p>Planer, opgaver og mad er synligt for alle. Ingen skal være familiens “projektleder” alene.</p>
-            </div>
-          </div>
-
-          <div class="card green">
-            <div class="shine"></div>
-            <div class="inner">
-              <h3>⏱️ Mindre koordinering</h3>
-              <p>Færre beskeder, færre misforståelser. Aftaler og to-dos ligger samme sted – altid opdateret.</p>
-            </div>
-          </div>
-
-          <div class="card rose">
-            <div class="shine"></div>
-            <div class="inner">
-              <h3>❤️ Mere tid sammen</h3>
-              <p>Når logistikken kører, får I plads til det vigtige: ro, nærvær og overskud i hverdagen.</p>
-            </div>
+          <div class="fine">
+            All-in-one. Best-in-market. Stop med at lede efter “den rigtige løsning”.
           </div>
         </div>
 
-        <div class="panel">
-          <p>
-            <b>Ingen andre gør det så samlet.</b> Kalender, madplan, opgaver, indkøb, skole, ønsker, aktivitet og historie –
-            i én enkel oplevelse. Så du kan stoppe med at lede efter “den rigtige kombination af apps”. Den er her.
-          </p>
-        </div>
-      </section>
-
-      <div class="divider"></div>
-
-      <section id="funktioner" class="section">
-        <div class="eyebrow">Funktioner</div>
-        <h2>Alt det, I bruger hver uge — samlet</h2>
-        <p class="desc">
-          Bygget som din dashboard-idé: widgets til hverdagen + hurtig app-menu. Intet overflødigt — bare det der virker.
-        </p>
-
-        <div class="feature-grid">
-          <div class="ft">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">📅</div>
-              <div>
-                <h3>Kalender & aftaler</h3>
-                <p>Se dagens planer på ét blik – med hurtig overblik og mulighed for at dykke ned, når det er nødvendigt.</p>
+        <div class="card">
+          <div class="preview">
+            <div class="frame">
+              <div class="miniTop">
+                <span>Tirsdag · 16:36</span>
+                <div class="chips">
+                  <span class="chip">Hjælp</span>
+                  <span class="chip">Indstillinger</span>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="ft orange">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">🍽️</div>
-              <div>
-                <h3>Madplan</h3>
-                <p>Hvad skal vi spise i aften? Slut med beslutningstræthed. Planlæg og gør det nemt at handle ind.</p>
-              </div>
-            </div>
-          </div>
+              <div class="blocks">
+                <div class="block">
+                  <div class="blockTitle">
+                    <span>Aftaler</span>
+                    <span class="badge">0 i dag</span>
+                  </div>
+                  <div class="empty">Ingen planer — slap af!</div>
+                </div>
 
-          <div class="ft green">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">✅</div>
-              <div>
-                <h3>Opgaver</h3>
-                <p>Fordel opgaver på tværs af familiemedlemmer og gør fremskridt synligt og motiverende.</p>
-              </div>
-            </div>
-          </div>
+                <div class="block">
+                  <div class="blockTitle">
+                    <span>Madplan</span>
+                    <span style="opacity:.65; font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:10px;">
+                      I aften
+                    </span>
+                  </div>
+                  <div style="margin-top:10px; font-weight:900; letter-spacing:-0.02em; line-height:1.2;">
+                    Hakkebøf med bløde løg, skysovs og kogte kartofler
+                  </div>
+                </div>
 
-          <div class="ft">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">🛒</div>
-              <div>
-                <h3>Indkøb</h3>
-                <p>Hav listen med dig – og byg den op direkte ud fra madplanen (og familiens behov).</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ft rose">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">🎓</div>
-              <div>
-                <h3>Skole</h3>
-                <p>Samler det, der normalt ligger i beskeder, mails og løse noter – så intet bliver glemt.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ft amber">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">⭐</div>
-              <div>
-                <h3>Ønsker</h3>
-                <p>Ønskelister og idéer ét sted – både til børn og voksne. Perfekt til fødselsdage og højtider.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ft">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">✨</div>
-              <div>
-                <h3>Aktivitet</h3>
-                <p>Følg med i hvad der sker og skab flow i hverdagen — uden støj.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ft purple">
-            <div class="shine"></div>
-            <div class="inner">
-              <div class="icon">⚡</div>
-              <div>
-                <h3>Historie</h3>
-                <p>Et sted til familiens små øjeblikke og fortællinger. Det, der gør det hele til mere end en to-do.</p>
+                <div class="block">
+                  <div class="blockTitle">
+                    <span>Apps</span>
+                    <span style="opacity:.55; font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:10px;">
+                      Alt i én hub
+                    </span>
+                  </div>
+                  <div class="apps" aria-label="Apps & værktøjer">
+                    <div class="app"><span>📅</span><b>Kalender</b></div>
+                    <div class="app"><span>🍽️</span><b>Madplan</b></div>
+                    <div class="app"><span>✅</span><b>Opgaver</b></div>
+                    <div class="app"><span>🛒</span><b>Indkøb</b></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div class="divider"></div>
+      <section id="hvorfor" class="section">
+        <div class="headline">Hvorfor det ændrer hverdagen</div>
+        <div class="lead">
+          Familier mister ikke overblik på “de store ting” — men på de små. Med Family Hub på Plurima
+          forsvinder friktionen: alle ved hvad der sker, hvad vi spiser, og hvem der gør hvad.
+        </div>
+
+        <div class="grid">
+          <div class="tile">
+            <h3>Mindre mental load</h3>
+            <p>Overblik er synligt for alle. Ingen skal være familiens koordinator alene.</p>
+          </div>
+          <div class="tile">
+            <h3>Færre beskeder</h3>
+            <p>Planer, opgaver og indkøb er samlet. Mindre “husk lige…” hele dagen.</p>
+          </div>
+          <div class="tile">
+            <h3>Mere ro sammen</h3>
+            <p>Når logistikken kører, får I tid til det, der betyder noget.</p>
+          </div>
+        </div>
+      </section>
 
       <section id="download" class="section">
-        <div class="cta">
-          <div class="cta-row">
-            <div>
-              <div class="eyebrow">Klar til ro i hverdagen?</div>
-              <h2>Download i dag</h2>
-              <p>
-                Stop med at samle fem forskellige løsninger. Giv familien én hub, alle kan finde ud af.
-                <b> Nu på App Store og Google Play.</b>
-              </p>
-            </div>
-
-            <div style="display:flex; gap: 10px; flex-wrap: wrap;">
-              <!-- Sæt dine rigtige links ind her -->
-              <a class="btn primary" href="#" target="_blank" rel="noopener">App Store</a>
-              <a class="btn secondary" href="#" target="_blank" rel="noopener">Google Play</a>
-            </div>
-          </div>
-
-          <div style="margin-top: 14px; display:flex; gap: 8px; flex-wrap: wrap;">
-            <span class="pill">Designet til tablet</span>
-            <span class="pill">Familieprofiler</span>
-            <span class="pill">Hurtig navigation</span>
-            <span class="pill">Alt samlet</span>
-          </div>
+        <div class="headline">Download i dag</div>
+        <div class="lead">
+          Én hub. Ingen kompromiser. Klar til App Store og Google Play.
         </div>
 
-        <div class="footer">© <span id="year"></span> Plurima — Family Hub på Plurima</div>
+        <div class="cta" style="margin-top:16px;">
+          <!-- Sæt dine rigtige links ind her -->
+          <a class="btn primary" href="#" target="_blank" rel="noopener">App Store</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Google Play</a>
+        </div>
       </section>
+
+      <footer>
+        <div class="footRow">
+          <div>© <span id="y"></span> Plurima — Family Hub på Plurima</div>
+          <div style="opacity:.85">Simple. Sofistikeret. All-in-one.</div>
+        </div>
+      </footer>
     </div>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("y").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>

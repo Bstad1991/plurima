@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Family Hub på Plurima</title>
-  <meta name="description" content="Kalender, madplan, opgaver og indkøb samlet i én Family Hub. Bygget til ro, overblik og flow i familielivet." />
+  <meta name="description" content="Family Hub på Plurima — iPhone i hånden. Tablet på væggen. Den nye standard for familielogistik." />
 
-  <!-- CSSDevices (realistiske iPhone/iPad frames i ren CSS) -->
-  <!-- Kilde: CSSDevices setup + jsDelivr fil-liste -->
+  <!-- CSSDevices -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cssdevices@2.2.1/devices.min.css" />
 
   <style>
@@ -17,10 +16,7 @@
       --text:#f7f8ff;
       --muted:rgba(247,248,255,.68);
       --hair:rgba(255,255,255,.10);
-      --glass:rgba(255,255,255,.06);
-      --glass2:rgba(255,255,255,.10);
       --shadow: 0 40px 120px rgba(0,0,0,.55);
-      --radius: 28px;
 
       --blue:#3b82f6;
       --orange:#f97316;
@@ -46,215 +42,140 @@
     }
     a{color:inherit; text-decoration:none}
 
-    .wrap{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 26px 18px 84px;
-    }
-
-    /* Top bar */
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
+    .wrap{max-width:1200px; margin:0 auto; padding:26px 18px 84px;}
+    .top{display:flex; justify-content:space-between; align-items:center; gap:14px;}
+    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
     .mark{
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid var(--hair);
-      background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      display:grid;
-      place-items:center;
-      font-weight: 900;
-      letter-spacing:-.04em;
+      width:42px;height:42px;border-radius:14px;border:1px solid var(--hair);
+      background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+      display:grid;place-items:center;font-weight:900;letter-spacing:-.04em;
     }
-    .name{
-      font-weight: 900;
-      letter-spacing:-.03em;
-      opacity:.92;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .name{font-weight:900;letter-spacing:-.03em;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
     .pill{
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(247,248,255,.75);
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: all .2s ease;
+      font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+      color:rgba(247,248,255,.75);
+      padding:10px 12px;border-radius:999px;border:1px solid transparent;
+      transition:all .2s ease;
     }
-    .pill:hover{
-      border-color: var(--hair);
-      background: rgba(255,255,255,.04);
-    }
+    .pill:hover{border-color:var(--hair); background:rgba(255,255,255,.04);}
     .pill.primary{
-      background: rgba(247,248,255,.92);
-      color:#07080c;
-      box-shadow: 0 22px 70px rgba(0,0,0,.45);
-    }
-    .pill.primary:hover{opacity:.95}
-
-    /* Hero */
-    .hero{
-      margin-top: 56px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 26px;
-      align-items:start;
+      background:rgba(247,248,255,.92); color:#07080c;
+      box-shadow:0 22px 70px rgba(0,0,0,.45);
     }
 
+    .hero{margin-top:56px;}
     .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--hair);
-      background: rgba(255,255,255,.04);
-      color: rgba(247,248,255,.80);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .10em;
-      text-transform: uppercase;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;border:1px solid var(--hair);
+      background:rgba(255,255,255,.04);
+      color:rgba(247,248,255,.80);
+      font-size:12px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;
     }
-    .dot{
-      width: 8px; height: 8px; border-radius: 99px;
-      background: rgba(34,197,94,.92);
-      box-shadow: 0 0 0 6px rgba(34,197,94,.18);
-    }
-
+    .dot{width:8px;height:8px;border-radius:99px;background:rgba(34,197,94,.92);box-shadow:0 0 0 6px rgba(34,197,94,.18);}
     h1{
-      margin: 16px 0 0;
-      font-size: clamp(40px, 5.2vw, 72px);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-      font-weight: 950;
+      margin:16px 0 0;
+      font-size:clamp(40px, 5.2vw, 72px);
+      line-height:1.02; letter-spacing:-0.06em; font-weight:950;
     }
-    .sub{
-      margin-top: 14px;
-      max-width: 820px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--muted);
-    }
+    .sub{margin-top:14px; max-width:820px; font-size:18px; line-height:1.7; color:var(--muted);}
 
-    /* Stage */
+    /* ====== STAGE FIX (prevents Slenderman) ====== */
     .stage{
-      margin-top: 34px;
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      margin-top:34px;
+      border-radius:34px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
     }
-    .stage::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(700px 300px at 50% 0%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(900px 500px at 15% 20%, rgba(99,102,241,.12), transparent 60%),
-        radial-gradient(900px 500px at 85% 35%, rgba(59,130,246,.10), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
-    }
     .stageInner{
-      position:relative;
-      padding: 26px 18px 28px;
+      padding: 22px 18px 18px;
+      /* hard caps: prevents “stretch to infinity” */
+      height: clamp(520px, 62vh, 680px);
+    }
+    @media (max-width: 980px){
+      .stageInner{ height: auto; padding: 18px 14px 8px; }
     }
 
-    /* Devices layout */
     .devices{
+      height: 100%;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 26px;
       align-items:center;
       justify-items:center;
-      padding: 20px 10px 6px;
     }
     @media (max-width: 980px){
-      .devices{grid-template-columns: 1fr; gap: 34px; padding: 18px 6px 0;}
+      .devices{grid-template-columns:1fr; gap: 30px;}
     }
 
-    /* iPhone scale */
-    .phoneWrap{transform: translateY(4px) scale(1.0); transform-origin:center;}
-    @media (max-width: 980px){ .phoneWrap{transform: scale(.96);} }
-
-    /* Wall tablet: rotated landscape + heavy wall shadow */
-    .tabletMount{
-      position:relative;
+    /* ====== DEVICE SIZE CAPS ======
+       We DO NOT let CSSDevices decide height based on container.
+       We set a max-height for the whole device and scale to fit. */
+    .phoneWrap, .tabletMount{
+      width: 100%;
       display:grid;
       place-items:center;
-      transform: translateY(-4px);
     }
 
+    /* Phone: keep it compact */
+    .phoneWrap .cd-iphone-6{
+      transform-origin: center;
+      transform: scale(.92);
+      max-height: 610px;
+    }
+    @media (max-width: 980px){
+      .phoneWrap .cd-iphone-6{ transform: scale(.88); }
+    }
+
+    /* Tablet: rotate landscape, but constrain its box */
+    .tabletMount{
+      position:relative;
+      width: 100%;
+      max-width: 560px; /* controls overall footprint */
+      height: 100%;
+      max-height: 520px; /* stops tall stretching */
+    }
     .tabletMount::before{
-      /* wall-mount shadow “true” feel */
       content:"";
       position:absolute;
-      width: 520px;
-      height: 340px;
-      border-radius: 48px;
+      inset: 8% 6% 6% 8%;
+      border-radius: 50px;
       background: radial-gradient(closest-side, rgba(0,0,0,.55), rgba(0,0,0,0));
       filter: blur(14px);
-      transform: translate(18px, 26px);
+      transform: translate(18px, 24px);
       opacity: .9;
-      pointer-events:none;
-    }
-    .tabletMount::after{
-      /* subtle “wall plate” highlight */
-      content:"";
-      position:absolute;
-      width: 540px;
-      height: 360px;
-      border-radius: 52px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      transform: translate(-10px, -8px);
       pointer-events:none;
     }
 
     .tabletWrap{
-      transform: rotate(-90deg) scale(1.05);
+      transform: rotate(-90deg) scale(.86);
       transform-origin:center;
+      /* critical: prevents the rotated element from forcing huge layout */
+      width: 520px;
+      height: 360px;
+      display:grid;
+      place-items:center;
     }
     @media (max-width: 980px){
-      .tabletMount::before, .tabletMount::after{display:none;}
-      .tabletWrap{transform: rotate(-90deg) scale(.95);}
+      .tabletMount{ max-width: 520px; max-height: 520px; }
+      .tabletWrap{ transform: rotate(-90deg) scale(.78); width: 480px; height: 340px; }
+      .tabletMount::before{ display:none; }
     }
 
-    /* Device screens should fill nicely */
+    /* Make CSSDevices screens behave */
     .cd-screen{
       overflow:hidden;
-      border-radius: 8px;
-      background: #0b0c10;
+      border-radius: 10px;
+      background:#0b0c10;
     }
 
-    /* ===== Fake “Family Hub” UI (inside screens) ===== */
+    /* ===== UI inside devices ===== */
     .ui{
-      height:100%;
-      width:100%;
+      height:100%; width:100%;
       background:
         radial-gradient(520px 260px at 20% 10%, rgba(99,102,241,.18), transparent 60%),
         radial-gradient(520px 260px at 80% 20%, rgba(59,130,246,.14), transparent 60%),
@@ -264,234 +185,102 @@
       padding: 14px;
       gap: 12px;
     }
-
     .uiTop{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      padding:10px 10px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
     }
-    .uiDate{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      min-width:0;
-    }
+    .uiDate{display:flex;flex-direction:column;gap:4px;min-width:0;}
     .uiDate b{
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      opacity:.85;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-size:10px; letter-spacing:.18em; text-transform:uppercase; opacity:.85;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
     .uiDate span{
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      opacity:.55;
+      font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.55;
     }
-
-    .uiActions{
-      display:flex;
-      gap: 8px;
-      flex-shrink:0;
-    }
+    .uiActions{display:flex; gap:8px; flex-shrink:0;}
     .chip{
-      padding: 9px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 950;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      opacity:.95;
+      padding:9px 10px;border-radius:999px;
+      font-size:10px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
       white-space:nowrap;
     }
 
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      flex:1;
-      min-height:0;
-    }
-
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap: 10px; flex:1; min-height:0;}
     .card{
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      padding: 12px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height:0;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      padding:12px;
+      display:flex; flex-direction:column; gap: 10px; min-height:0;
     }
-    .cardHead{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-    }
-    .cardHead b{
-      font-size: 12px;
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
+    .cardHead{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+    .cardHead b{font-size:12px;font-weight:950;letter-spacing:-.02em;}
     .badge{
-      font-size: 9px;
-      font-weight: 950;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      font-size:9px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
       opacity:.9;
+      white-space:nowrap;
     }
 
-    /* mini event rows */
     .event{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding: 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      display:flex; gap:10px; align-items:center;
+      padding:10px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
     }
     .dateBox{
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      width:42px;height:42px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
       flex-shrink:0;
     }
-    .dateBox small{
-      font-size: 8px;
-      font-weight: 950;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      opacity:.60;
-      line-height: 1;
-    }
-    .dateBox span{
-      font-size: 16px;
-      font-weight: 950;
-      letter-spacing:-.03em;
-      line-height: 1.1;
-    }
-    .eventTxt{
-      min-width:0;
-      flex:1;
-    }
+    .dateBox small{font-size:8px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;opacity:.60;line-height:1;}
+    .dateBox span{font-size:16px;font-weight:950;letter-spacing:-.03em;line-height:1.1;}
+    .eventTxt{min-width:0; flex:1;}
     .eventTxt b{
-      display:block;
-      font-size: 12px;
-      font-weight: 950;
-      letter-spacing:-.01em;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      display:block;font-size:12px;font-weight:950;letter-spacing:-.01em;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
     .eventTxt small{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      font-size: 10px;
-      opacity:.60;
-      letter-spacing:.10em;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-top:4px;
+      display:flex;align-items:center;gap:6px;
+      font-size:10px;opacity:.60;letter-spacing:.10em;text-transform:uppercase;font-weight:900;margin-top:4px;
     }
-    .pillDot{
-      width:7px; height:7px; border-radius:99px;
-      background: rgba(59,130,246,.95);
-      box-shadow: 0 0 0 6px rgba(59,130,246,.16);
-    }
+    .pillDot{width:7px;height:7px;border-radius:99px;background:rgba(59,130,246,.95);box-shadow:0 0 0 6px rgba(59,130,246,.16);}
 
-    /* Meal card */
     .mealBig{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap: 8px;
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      flex:1; display:flex; flex-direction:column; justify-content:center; gap:8px;
+      padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
       min-height:0;
     }
     .mealBig small{
-      font-size: 9px;
-      font-weight: 950;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      color: rgba(249,115,22,.95);
+      font-size:9px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;
+      color:rgba(249,115,22,.95);
     }
-    .mealBig b{
-      font-size: 16px;
-      font-weight: 950;
-      letter-spacing:-.02em;
-      line-height: 1.15;
-    }
+    .mealBig b{font-size:16px;font-weight:950;letter-spacing:-.02em;line-height:1.15;}
 
-    /* Apps grid */
-    .apps{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
+    .apps{display:grid; grid-template-columns: repeat(2, 1fr); gap: 8px;}
     .app{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 10px 8px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap: 8px;
+      border-radius:16px;border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      padding:10px 8px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
     }
     .tileIcon{
-      width: 34px;
-      height: 34px;
-      border-radius: 14px;
-      display:grid;
-      place-items:center;
-      color:white;
-      font-weight: 950;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.12);
+      width:34px;height:34px;border-radius:14px;display:grid;place-items:center;color:white;font-weight:950;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);
     }
-    .app b{
-      font-size: 8px;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      opacity:.70;
-      text-align:center;
-      line-height: 1.2;
-      font-weight: 950;
-    }
+    .app b{font-size:8px;letter-spacing:.18em;text-transform:uppercase;opacity:.70;text-align:center;line-height:1.2;font-weight:950;}
 
-    /* Tablet layout inside screen */
-    .uiTablet{
-      padding: 14px;
-      gap: 12px;
-    }
+    /* Tablet UI: more horizontal density */
+    .uiTablet{padding:14px; gap:12px;}
     .tabletGrid{
       display:grid;
       grid-template-columns: 1.35fr .65fr;
@@ -499,100 +288,18 @@
       flex:1;
       min-height:0;
     }
-    .leftCol{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: minmax(0, 1fr);
-      gap: 10px;
-      min-height:0;
-    }
+    .leftCol{display:grid; grid-template-columns: 1fr 1fr; gap:10px; min-height:0;}
     .span2{grid-column: 1 / -1;}
     .rightCol{
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      padding: 12px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height:0;
+      border-radius:18px;border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      padding:12px; display:flex; flex-direction:column; gap:10px; min-height:0;
     }
     .rightCol h3{
-      margin:0;
-      font-size: 10px;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      opacity:.75;
-      font-weight: 950;
-      display:flex;
-      align-items:center;
-      gap: 8px;
+      margin:0; font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+      opacity:.75; font-weight:950; display:flex; align-items:center; gap:8px;
     }
-    .spark{
-      width:10px;height:10px;border-radius:99px;
-      background: rgba(99,102,241,.9);
-      box-shadow: 0 0 0 7px rgba(99,102,241,.16);
-    }
-
-    /* Footer text under devices */
-    .stageCopy{
-      margin-top: 8px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap: 10px;
-      text-align:center;
-      padding: 0 8px;
-    }
-    .stageCopy p{
-      margin: 0;
-      color: rgba(247,248,255,.65);
-      line-height: 1.7;
-      max-width: 920px;
-      font-size: 14px;
-    }
-    .stageCopy strong{color: rgba(247,248,255,.92)}
-
-    /* section below */
-    .section{
-      margin-top: 64px;
-      padding-top: 8px;
-    }
-    .headline{
-      font-size: 26px;
-      font-weight: 950;
-      letter-spacing:-.03em;
-    }
-    .lead{
-      margin-top: 10px;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 900px;
-    }
-    .tiles{
-      margin-top: 16px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 980px){ .tiles{grid-template-columns:1fr;} }
-    .tile{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
-    }
-    .tile h3{
-      margin:0;
-      font-size: 16px;
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
-    .tile p{
-      margin: 8px 0 0;
-      color: rgba(247,248,255,.62);
-      line-height: 1.7;
-    }
+    .spark{width:10px;height:10px;border-radius:99px;background:rgba(99,102,241,.9);box-shadow:0 0 0 7px rgba(99,102,241,.16);}
 
     footer{
       margin-top: 62px;
@@ -617,312 +324,242 @@
         <div class="name">Family Hub på Plurima</div>
       </div>
       <nav class="nav">
-        <a class="pill" href="#hvorfor">Hvorfor</a>
         <a class="pill" href="#download">Download</a>
-        <a class="pill primary" id="ctaTop" href="#download">Kom i gang</a>
+        <a class="pill primary" href="#download">Kom i gang</a>
       </nav>
     </div>
 
     <section class="hero">
-      <div>
-        <div class="kicker"><span class="dot"></span> Nu på App Store & Google Play</div>
-        <h1>Det nyeste nye.<br/>Til familielivet.</h1>
-        <p class="sub">
-          Family Hub på Plurima samler <strong>kalender</strong>, <strong>madplan</strong>, <strong>opgaver</strong> og <strong>indkøb</strong> i ét elegant overblik —
-          på mobilen i hånden og som en tablet på væggen. Nul kaos. Maks flow.
-        </p>
+      <div class="kicker"><span class="dot"></span> Nu på App Store & Google Play</div>
+      <h1>Ikke bare en app.<br/>Et nyt dashboard til hjemmet.</h1>
+      <p class="sub">
+        Family Hub på Plurima samler <strong>kalender</strong>, <strong>madplan</strong>, <strong>opgaver</strong> og <strong>indkøb</strong> i ét elegant overblik —
+        på mobilen og på væggen. Stop med at lede. Det her er den, der virker.
+      </p>
 
-        <div class="stage" aria-label="Produktfremvisning">
-          <div class="stageInner">
-            <div class="devices">
+      <div class="stage">
+        <div class="stageInner">
+          <div class="devices">
 
-              <!-- iPhone (stående) -->
-              <div class="phoneWrap" aria-label="iPhone preview">
-                <!-- CSSDevices iPhone structure -->
-                <div class="cd-iphone-6 cd-silver">
+            <!-- iPhone -->
+            <div class="phoneWrap">
+              <div class="cd-iphone-6 cd-silver">
+                <div class="cd-body">
+                  <div class="cd-sound"></div>
+                  <div class="cd-sleep"></div>
+                  <div class="cd-camera"></div>
+                  <div class="cd-ear"></div>
+                  <div class="cd-home"></div>
+                  <div class="cd-screen">
+                    <div class="ui">
+                      <div class="uiTop">
+                        <div class="uiDate">
+                          <b>Tirsdag · 20. januar</b>
+                          <span>16:36</span>
+                        </div>
+                        <div class="uiActions">
+                          <div class="chip">Hjælp</div>
+                          <div class="chip">Indstillinger</div>
+                        </div>
+                      </div>
+
+                      <div class="grid2">
+                        <div class="card">
+                          <div class="cardHead">
+                            <b>Aftaler</b>
+                            <span class="badge">2 i dag</span>
+                          </div>
+                          <div class="event">
+                            <div class="dateBox"><small>tir</small><span>20</span></div>
+                            <div class="eventTxt">
+                              <b>Tandlæge · Alma</b>
+                              <small><span class="pillDot"></span> 15:10</small>
+                            </div>
+                          </div>
+                          <div class="event">
+                            <div class="dateBox"><small>tir</small><span>20</span></div>
+                            <div class="eventTxt">
+                              <b>Fodbold</b>
+                              <small><span class="pillDot"></span> 17:30</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card">
+                          <div class="cardHead">
+                            <b>Madplan</b>
+                            <span class="badge" style="border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.10);">i aften</span>
+                          </div>
+                          <div class="mealBig">
+                            <small>I aften</small>
+                            <b>Hakkebøf med bløde løg, skysovs & kartofler</b>
+                          </div>
+
+                          <div class="cardHead" style="margin-top:2px;">
+                            <b style="font-size:11px; opacity:.92;">Apps</b>
+                            <span class="badge" style="opacity:.75;">one hub</span>
+                          </div>
+
+                          <div class="apps">
+                            <div class="app">
+                              <div class="tileIcon" style="background: var(--blue);">📅</div>
+                              <b>Kalender</b>
+                            </div>
+                            <div class="app">
+                              <div class="tileIcon" style="background: var(--orange);">🍽️</div>
+                              <b>Madplan</b>
+                            </div>
+                            <div class="app">
+                              <div class="tileIcon" style="background: var(--green);">✅</div>
+                              <b>Opgaver</b>
+                            </div>
+                            <div class="app">
+                              <div class="tileIcon" style="background: var(--emerald);">🛒</div>
+                              <b>Indkøb</b>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /ui -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tablet (wall mount landscape) -->
+            <div class="tabletMount">
+              <div class="tabletWrap">
+                <div class="cd-ipad cd-silver">
                   <div class="cd-body">
-                    <div class="cd-sound"></div>
-                    <div class="cd-sleep"></div>
                     <div class="cd-camera"></div>
-                    <div class="cd-ear"></div>
                     <div class="cd-home"></div>
-
                     <div class="cd-screen">
-                      <!-- iPhone UI -->
-                      <div class="ui">
+                      <div class="ui uiTablet">
                         <div class="uiTop">
                           <div class="uiDate">
-                            <b>Tirsdag · 20. januar</b>
-                            <span>16:36</span>
+                            <b>Wall Mode · Tirsdag</b>
+                            <span>Overblik for hele familien</span>
                           </div>
                           <div class="uiActions">
                             <div class="chip">Hjælp</div>
-                            <div class="chip">Indstillinger</div>
+                            <div class="chip">Admin</div>
                           </div>
                         </div>
 
-                        <div class="grid2">
-                          <div class="card">
-                            <div class="cardHead">
-                              <b>Aftaler</b>
-                              <span class="badge">2 i dag</span>
-                            </div>
-
-                            <div class="event">
-                              <div class="dateBox"><small>tir</small><span>20</span></div>
-                              <div class="eventTxt">
-                                <b>Tandlæge · Alma</b>
-                                <small><span class="pillDot"></span> 15:10</small>
+                        <div class="tabletGrid">
+                          <div class="leftCol">
+                            <div class="card span2">
+                              <div class="cardHead">
+                                <b>Aftaler</b>
+                                <span class="badge">Næste 3</span>
+                              </div>
+                              <div class="event">
+                                <div class="dateBox"><small>tir</small><span>20</span></div>
+                                <div class="eventTxt">
+                                  <b>Tandlæge · Alma</b>
+                                  <small><span class="pillDot" style="background: rgba(34,197,94,.95); box-shadow:0 0 0 6px rgba(34,197,94,.16)"></span> 15:10</small>
+                                </div>
+                              </div>
+                              <div class="event">
+                                <div class="dateBox"><small>tir</small><span>20</span></div>
+                                <div class="eventTxt">
+                                  <b>Fodbold</b>
+                                  <small><span class="pillDot"></span> 17:30</small>
+                                </div>
+                              </div>
+                              <div class="event">
+                                <div class="dateBox"><small>ons</small><span>21</span></div>
+                                <div class="eventTxt">
+                                  <b>Forældremøde</b>
+                                  <small><span class="pillDot" style="background: rgba(168,85,247,.95); box-shadow:0 0 0 6px rgba(168,85,247,.16)"></span> 19:00</small>
+                                </div>
                               </div>
                             </div>
 
-                            <div class="event">
-                              <div class="dateBox"><small>tir</small><span>20</span></div>
-                              <div class="eventTxt">
-                                <b>Fodbold</b>
-                                <small><span class="pillDot"></span> 17:30</small>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="card">
-                            <div class="cardHead">
-                              <b>Madplan</b>
-                              <span class="badge" style="border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.10);">i aften</span>
-                            </div>
-                            <div class="mealBig">
-                              <small>I aften</small>
-                              <b>Hakkebøf med bløde løg, skysovs & kartofler</b>
-                            </div>
-
-                            <div class="cardHead" style="margin-top:2px;">
-                              <b style="font-size:11px; opacity:.92;">Apps</b>
-                              <span class="badge" style="opacity:.75;">one hub</span>
-                            </div>
-
-                            <div class="apps" style="grid-template-columns: repeat(2, 1fr);">
-                              <div class="app">
-                                <div class="tileIcon" style="background: var(--blue);">📅</div>
-                                <b>Kalender</b>
-                              </div>
-                              <div class="app">
-                                <div class="tileIcon" style="background: var(--orange);">🍽️</div>
+                            <div class="card">
+                              <div class="cardHead">
                                 <b>Madplan</b>
+                                <span class="badge" style="border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.10);">i aften</span>
                               </div>
-                              <div class="app">
-                                <div class="tileIcon" style="background: var(--green);">✅</div>
+                              <div class="mealBig" style="flex:1;">
+                                <small>I aften</small>
+                                <b>Hakkebøf, løg, skysovs — klar på 25 min</b>
+                                <div style="margin-top:6px; font-size:10px; opacity:.65; font-weight:900; letter-spacing:.14em; text-transform:uppercase;">
+                                  Pantry + indkøb integreret
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="card">
+                              <div class="cardHead">
                                 <b>Opgaver</b>
+                                <span class="badge" style="border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.10);">3 åbne</span>
                               </div>
-                              <div class="app">
-                                <div class="tileIcon" style="background: var(--emerald);">🛒</div>
-                                <b>Indkøb</b>
+                              <div style="display:grid; gap:8px;">
+                                <div class="event" style="padding:10px 12px;">
+                                  <div class="tileIcon" style="background: var(--green); width:30px; height:30px; border-radius:12px;">✅</div>
+                                  <div class="eventTxt">
+                                    <b>Støvsuge køkken</b>
+                                    <small style="opacity:.55;">Tildelt: Far</small>
+                                  </div>
+                                </div>
+                                <div class="event" style="padding:10px 12px;">
+                                  <div class="tileIcon" style="background: var(--emerald); width:30px; height:30px; border-radius:12px;">🧺</div>
+                                  <div class="eventTxt">
+                                    <b>Tøjvask</b>
+                                    <small style="opacity:.55;">Tildelt: Mor</small>
+                                  </div>
+                                </div>
+                                <div class="event" style="padding:10px 12px;">
+                                  <div class="tileIcon" style="background: var(--amber); width:30px; height:30px; border-radius:12px;">⭐</div>
+                                  <div class="eventTxt">
+                                    <b>Pakkeliste i morgen</b>
+                                    <small style="opacity:.55;">Skole</small>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+
+                          <div class="rightCol">
+                            <h3><span class="spark"></span> Apps & værktøjer</h3>
+
+                            <div class="apps" style="grid-template-columns: repeat(2, 1fr); gap:10px;">
+                              <div class="app"><div class="tileIcon" style="background: var(--blue);">📅</div><b>Kalender</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--orange);">🍽️</div><b>Madplan</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--green);">✅</div><b>Opgaver</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--emerald);">🛒</div><b>Indkøb</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--rose);">🎒</div><b>Skole</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--amber);">⭐</div><b>Ønsker</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--indigo);">✨</div><b>Aktivitet</b></div>
+                              <div class="app"><div class="tileIcon" style="background: var(--purple);">📖</div><b>Historie</b></div>
+                            </div>
+
+                            <div style="margin-top:auto; padding-top:8px; border-top:1px solid rgba(255,255,255,.10); color: rgba(247,248,255,.62); font-size:11px; line-height:1.7;">
+                              <div style="font-weight:950; letter-spacing:.12em; text-transform:uppercase; opacity:.9;">Alt samlet</div>
+                              Mindre “husk lige…” — mere ro. Wall Mode gør hub’en synlig for alle.
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <!-- /iPhone UI -->
+
+                      </div><!-- /uiTablet -->
                     </div>
                   </div>
                 </div>
               </div>
-
-              <!-- Tablet (liggende / wall mount) -->
-              <div class="tabletMount" aria-label="Tablet wall preview">
-                <div class="tabletWrap">
-                  <!-- CSSDevices iPad structure -->
-                  <div class="cd-ipad cd-silver">
-                    <div class="cd-body">
-                      <div class="cd-camera"></div>
-                      <div class="cd-home"></div>
-                      <div class="cd-screen">
-                        <!-- Tablet UI (wall mode) -->
-                        <div class="ui uiTablet">
-                          <div class="uiTop">
-                            <div class="uiDate">
-                              <b>Wall Mode · Tirsdag</b>
-                              <span>Overblik for hele familien</span>
-                            </div>
-                            <div class="uiActions">
-                              <div class="chip">Hjælp</div>
-                              <div class="chip">Admin</div>
-                            </div>
-                          </div>
-
-                          <div class="tabletGrid">
-                            <div class="leftCol">
-                              <div class="card span2">
-                                <div class="cardHead">
-                                  <b>Aftaler</b>
-                                  <span class="badge">Næste 3</span>
-                                </div>
-                                <div class="event">
-                                  <div class="dateBox"><small>tir</small><span>20</span></div>
-                                  <div class="eventTxt">
-                                    <b>Tandlæge · Alma</b>
-                                    <small><span class="pillDot" style="background: rgba(34,197,94,.95); box-shadow:0 0 0 6px rgba(34,197,94,.16)"></span> 15:10</small>
-                                  </div>
-                                </div>
-                                <div class="event">
-                                  <div class="dateBox"><small>tir</small><span>20</span></div>
-                                  <div class="eventTxt">
-                                    <b>Fodbold</b>
-                                    <small><span class="pillDot"></span> 17:30</small>
-                                  </div>
-                                </div>
-                                <div class="event">
-                                  <div class="dateBox"><small>ons</small><span>21</span></div>
-                                  <div class="eventTxt">
-                                    <b>Forældremøde</b>
-                                    <small><span class="pillDot" style="background: rgba(168,85,247,.95); box-shadow:0 0 0 6px rgba(168,85,247,.16)"></span> 19:00</small>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="card">
-                                <div class="cardHead">
-                                  <b>Madplan</b>
-                                  <span class="badge" style="border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.10);">i aften</span>
-                                </div>
-                                <div class="mealBig" style="flex:1;">
-                                  <small>I aften</small>
-                                  <b>Hakkebøf, løg, skysovs — klar på 25 min</b>
-                                  <div style="margin-top:6px; font-size:10px; opacity:.65; font-weight:900; letter-spacing:.14em; text-transform:uppercase;">
-                                    Pantry + indkøb integreret
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="card">
-                                <div class="cardHead">
-                                  <b>Opgaver</b>
-                                  <span class="badge" style="border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.10);">3 åbne</span>
-                                </div>
-                                <div style="display:grid; gap:8px;">
-                                  <div class="event" style="padding:10px 12px;">
-                                    <div class="tileIcon" style="background: var(--green); width:30px; height:30px; border-radius:12px;">✅</div>
-                                    <div class="eventTxt">
-                                      <b>Støvsuge køkken</b>
-                                      <small style="opacity:.55;">Tildelt: Far</small>
-                                    </div>
-                                  </div>
-                                  <div class="event" style="padding:10px 12px;">
-                                    <div class="tileIcon" style="background: var(--emerald); width:30px; height:30px; border-radius:12px;">🧺</div>
-                                    <div class="eventTxt">
-                                      <b>Tøjvask</b>
-                                      <small style="opacity:.55;">Tildelt: Mor</small>
-                                    </div>
-                                  </div>
-                                  <div class="event" style="padding:10px 12px;">
-                                    <div class="tileIcon" style="background: var(--amber); width:30px; height:30px; border-radius:12px;">⭐</div>
-                                    <div class="eventTxt">
-                                      <b>Pakkeliste i morgen</b>
-                                      <small style="opacity:.55;">Skole</small>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="rightCol">
-                              <h3><span class="spark"></span> Apps & værktøjer</h3>
-
-                              <div class="apps" style="grid-template-columns: repeat(2, 1fr); gap:10px;">
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--blue);">📅</div>
-                                  <b>Kalender</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--orange);">🍽️</div>
-                                  <b>Madplan</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--green);">✅</div>
-                                  <b>Opgaver</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--emerald);">🛒</div>
-                                  <b>Indkøb</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--rose);">🎒</div>
-                                  <b>Skole</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--amber);">⭐</div>
-                                  <b>Ønsker</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--indigo);">✨</div>
-                                  <b>Aktivitet</b>
-                                </div>
-                                <div class="app">
-                                  <div class="tileIcon" style="background: var(--purple);">📖</div>
-                                  <b>Historie</b>
-                                </div>
-                              </div>
-
-                              <div style="margin-top:auto; padding-top:8px; border-top:1px solid rgba(255,255,255,.10); color: rgba(247,248,255,.62); font-size:11px; line-height:1.7;">
-                                <div style="font-weight:950; letter-spacing:.12em; text-transform:uppercase; opacity:.9;">Alt samlet</div>
-                                Mindre “husk lige…” — mere ro. Wall Mode gør hub’en synlig for alle.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /Tablet UI -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
-            <div class="stageCopy">
-              <p>
-                <strong>Én hub.</strong> På telefonen når du er på farten — på væggen når familien er samlet.
-                Når alle kan se planen, forsvinder friktionen.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </div><!-- /devices -->
+        </div><!-- /stageInner -->
+      </div><!-- /stage -->
 
-    <section id="hvorfor" class="section">
-      <div class="headline">Hvorfor det føles som et “nyt produkt” til hverdagen</div>
-      <div class="lead">
-        Det handler ikke om flere features — men om færre beslutninger. Family Hub på Plurima gør familielogistik
-        til én samlet oplevelse: alle ved hvad der sker, hvad I spiser, og hvem der gør hvad. Det er derfor det
-        faktisk ændrer hverdagen.
-      </div>
-
-      <div class="tiles">
-        <div class="tile">
-          <h3>Mindre mental load</h3>
-          <p>Overblik er delt, ikke “ejet” af én person. I får en fælles sandhed.</p>
+      <section id="download" style="margin-top:18px;">
+        <div class="nav" style="justify-content:flex-start;">
+          <a class="pill primary" id="appstoreBtn" href="#" target="_blank" rel="noopener">App Store</a>
+          <a class="pill" id="playstoreBtn" href="#" target="_blank" rel="noopener">Google Play</a>
         </div>
-        <div class="tile">
-          <h3>Færre beskeder</h3>
-          <p>Kalender, indkøb og opgaver bor samme sted. Mindre ping-pong.</p>
-        </div>
-        <div class="tile">
-          <h3>Mere ro</h3>
-          <p>Når logistikken spiller, kommer tiden tilbage til hinanden.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="download" class="section">
-      <div class="headline">Download</div>
-      <div class="lead">
-        Klar til App Store og Google Play. Skift linksene herunder (i koden) — og du er live på Cloudflare Pages.
-      </div>
-
-      <div class="nav" style="justify-content:flex-start; margin-top:14px;">
-        <a class="pill primary" id="appstoreBtn" href="#" target="_blank" rel="noopener">App Store</a>
-        <a class="pill" id="playstoreBtn" href="#" target="_blank" rel="noopener">Google Play</a>
-      </div>
     </section>
 
     <footer>
@@ -932,15 +569,13 @@
   </div>
 
   <script>
-    // 1) Sæt dine rigtige links ind her:
+    // Sæt dine rigtige links ind her:
     const APP_STORE_URL = "https://example.com/appstore";
     const PLAY_STORE_URL = "https://example.com/playstore";
 
-    // 2) Hook links op
     document.getElementById("appstoreBtn").href = APP_STORE_URL;
     document.getElementById("playstoreBtn").href = PLAY_STORE_URL;
 
-    // 3) årstal
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>

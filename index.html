@@ -2,92 +2,92 @@
 <html lang="da">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Family Hub på Plurima</title>
     <meta
       name="description"
-      content="Family Hub på Plurima samler kalender, madplan, opgaver og indkøb i én enkel hub. Nu på App Store og Google Play."
+      content="Family Hub på Plurima — kalender, madplan, opgaver og indkøb samlet i én elegant hub. Nu på App Store og Google Play."
     />
 
     <style>
       :root{
-        --bg:#0b0c10;
-        --bg2:#0f1220;
-        --text:#f5f7ff;
-        --muted:rgba(245,247,255,.68);
-        --hair:rgba(255,255,255,.10);
-        --glass:rgba(255,255,255,.06);
-        --glass2:rgba(255,255,255,.10);
-        --shadow: 0 40px 120px rgba(0,0,0,.55);
-        --radius: 28px;
-      }
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{
-        margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-        background: radial-gradient(1200px 700px at 20% 10%, rgba(99,102,241,.22), transparent 60%),
-                    radial-gradient(1000px 700px at 80% 20%, rgba(59,130,246,.18), transparent 60%),
-                    radial-gradient(1000px 700px at 55% 90%, rgba(249,115,22,.12), transparent 60%),
-                    linear-gradient(180deg, var(--bg), var(--bg2));
-        color: var(--text);
-        overflow-x:hidden;
-      }
-      a{color:inherit; text-decoration:none}
-      .wrap{
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 28px 18px 80px;
+        --bg0:#07080c;
+        --bg1:#0b0d14;
+        --card:rgba(255,255,255,.06);
+        --card2:rgba(255,255,255,.10);
+        --hair:rgba(255,255,255,.12);
+        --text:#f6f7ff;
+        --muted:rgba(246,247,255,.68);
+        --muted2:rgba(246,247,255,.52);
+        --shadow: 0 50px 140px rgba(0,0,0,.62);
+        --shadow2: 0 22px 70px rgba(0,0,0,.45);
+        --radius: 26px;
+        --radius2: 34px;
+        --radius3: 44px;
+        --accent: rgba(255,255,255,.92);
+        --black: #07080c;
       }
 
-      /* Top bar */
+      *{ box-sizing:border-box }
+      html,body{ height:100% }
+      body{
+        margin:0;
+        color:var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background:
+          radial-gradient(1000px 700px at 20% 10%, rgba(99,102,241,.22), transparent 60%),
+          radial-gradient(1000px 700px at 80% 20%, rgba(59,130,246,.18), transparent 60%),
+          radial-gradient(900px 700px at 55% 95%, rgba(249,115,22,.12), transparent 60%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        overflow-x:hidden;
+      }
+
+      a{ color:inherit; text-decoration:none }
+      .wrap{ max-width: 1180px; margin:0 auto; padding: 26px 18px 80px; position:relative; }
+
+      /* Top */
       .top{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
+        display:flex; align-items:center; justify-content:space-between; gap:14px;
       }
       .brand{
-        display:flex;
-        align-items:center;
-        gap:12px;
-        min-width: 0;
+        display:flex; align-items:center; gap:12px; min-width:0;
       }
       .mark{
-        width: 40px;
-        height: 40px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
-        border: 1px solid var(--hair);
-        box-shadow: 0 14px 40px rgba(0,0,0,.35);
-        display:grid;
-        place-items:center;
-        font-weight: 900;
-        letter-spacing: -0.03em;
+        width:42px; height:42px; border-radius:16px;
+        background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+        border:1px solid var(--hair);
+        box-shadow: 0 18px 50px rgba(0,0,0,.35);
+        display:grid; place-items:center;
+        font-weight: 950; letter-spacing:-.04em;
       }
       .brand .name{
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: rgba(245,247,255,.92);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display:flex; flex-direction:column; gap:2px; min-width:0;
       }
-      .nav{
-        display:flex;
-        align-items:center;
-        gap:10px;
+      .brand .name b{
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.78);
+        white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       }
+      .brand .name span{
+        font-size: 13px; font-weight: 800;
+        color: rgba(246,247,255,.72);
+        white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      }
+
+      .nav{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
       .link{
         font-size: 12px;
-        font-weight: 800;
-        letter-spacing: .12em;
+        font-weight: 900;
+        letter-spacing: .14em;
         text-transform: uppercase;
-        color: rgba(245,247,255,.72);
+        color: rgba(246,247,255,.70);
         padding: 10px 12px;
         border-radius: 999px;
         border: 1px solid transparent;
-        transition: all .2s ease;
+        transition: background .2s ease, border-color .2s ease;
       }
       .link:hover{
         border-color: var(--hair);
@@ -96,387 +96,853 @@
 
       /* Hero */
       .hero{
-        margin-top: 70px;
+        margin-top: 68px;
         display:grid;
-        grid-template-columns: 1.25fr .75fr;
+        grid-template-columns: 1.05fr .95fr;
         gap: 28px;
-        align-items: start;
+        align-items:start;
       }
       @media (max-width: 980px){
-        .hero{grid-template-columns: 1fr; margin-top: 56px}
+        .hero{ grid-template-columns: 1fr; margin-top: 52px; }
       }
 
       .kicker{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
+        display:inline-flex; align-items:center; gap:10px;
         padding: 10px 14px;
         border-radius: 999px;
         border: 1px solid var(--hair);
         background: rgba(255,255,255,.04);
-        color: rgba(245,247,255,.78);
+        color: rgba(246,247,255,.80);
         font-size: 12px;
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: .08em;
       }
       .dot{
-        width: 8px;
-        height: 8px;
-        border-radius: 99px;
-        background: rgba(34,197,94,.9);
-        box-shadow: 0 0 0 6px rgba(34,197,94,.18);
+        width: 8px; height: 8px; border-radius: 99px;
+        background: rgba(34,197,94,.95);
+        box-shadow: 0 0 0 7px rgba(34,197,94,.18);
       }
 
       h1{
         margin: 18px 0 0;
-        font-size: clamp(38px, 5vw, 64px);
+        font-size: clamp(40px, 5.2vw, 66px);
         line-height: 1.02;
-        letter-spacing: -0.05em;
-        font-weight: 900;
+        letter-spacing: -0.06em;
+        font-weight: 950;
       }
       .sub{
         margin-top: 14px;
-        max-width: 640px;
         font-size: 18px;
-        line-height: 1.6;
+        line-height: 1.65;
         color: var(--muted);
+        max-width: 680px;
       }
 
       .cta{
         margin-top: 20px;
         display:flex;
         gap: 12px;
-        flex-wrap: wrap;
+        flex-wrap:wrap;
         align-items:center;
       }
       .btn{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:10px;
+        display:inline-flex; align-items:center; justify-content:center; gap:10px;
         padding: 14px 16px;
         border-radius: 999px;
         font-size: 12px;
-        font-weight: 900;
+        font-weight: 950;
         letter-spacing: .16em;
         text-transform: uppercase;
         border: 1px solid transparent;
-        transition: transform .15s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+        transition: transform .15s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
         user-select:none;
       }
-      .btn:active{transform: scale(.98)}
+      .btn:active{ transform: scale(.98); }
       .btn.primary{
-        background: rgba(245,247,255,.92);
-        color: #0b0c10;
-        box-shadow: 0 22px 70px rgba(0,0,0,.45);
+        background: var(--accent);
+        color: var(--black);
+        box-shadow: var(--shadow2);
       }
-      .btn.primary:hover{opacity:.95}
+      .btn.primary:hover{ opacity: .95; }
       .btn.ghost{
         border-color: var(--hair);
         background: rgba(255,255,255,.04);
-        color: rgba(245,247,255,.9);
+        color: rgba(246,247,255,.92);
       }
-      .btn.ghost:hover{background: rgba(255,255,255,.06)}
+      .btn.ghost:hover{ background: rgba(255,255,255,.06); }
 
       .fine{
         margin-top: 14px;
         font-size: 12px;
-        color: rgba(245,247,255,.55);
-        font-weight: 700;
+        color: var(--muted2);
+        font-weight: 800;
         letter-spacing: .02em;
       }
 
-      /* Preview */
-      .card{
-        border-radius: var(--radius);
-        border: 1px solid var(--hair);
+      /* Showcase */
+      .showcase{
+        border-radius: var(--radius3);
+        border: 1px solid rgba(255,255,255,.10);
         background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
         box-shadow: var(--shadow);
         overflow:hidden;
-      }
-      .preview{
         padding: 18px;
       }
-      .frame{
-        border-radius: 22px;
-        border: 1px solid rgba(255,255,255,.10);
-        background: radial-gradient(900px 400px at 40% 10%, rgba(255,255,255,.08), transparent 55%),
-                    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-        padding: 18px;
+
+      .show-head{
+        display:flex; align-items:flex-start; justify-content:space-between; gap: 12px;
+        padding: 4px 6px 14px;
       }
-      .miniTop{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:12px;
-        color: rgba(245,247,255,.70);
-        font-weight: 800;
-        letter-spacing: .12em;
+      .show-head h2{
+        margin:0;
+        font-size: 13px;
+        font-weight: 950;
+        letter-spacing: .22em;
         text-transform: uppercase;
-        font-size: 10px;
+        color: rgba(246,247,255,.72);
       }
-      .chips{display:flex; gap:8px}
-      .chip{
-        padding: 10px 12px;
-        border-radius: 999px;
+      .show-head p{
+        margin:8px 0 0;
+        font-size: 13px;
+        color: rgba(246,247,255,.55);
+        line-height: 1.5;
+        max-width: 360px;
+      }
+
+      .devices{
+        display:grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 16px;
+        align-items: end;
+      }
+      @media (max-width: 980px){
+        .devices{ grid-template-columns: 1fr; }
+      }
+
+      /* iPhone device */
+      .phone{
+        position:relative;
+        border-radius: 42px;
+        background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+        border: 1px solid rgba(255,255,255,.14);
+        box-shadow: 0 35px 110px rgba(0,0,0,.55);
+        padding: 12px;
+        transform: translateY(0);
+        animation: floaty 7s ease-in-out infinite;
+      }
+      @keyframes floaty{
+        0%,100%{ transform: translateY(0); }
+        50%{ transform: translateY(-8px); }
+      }
+      .phone::before{
+        content:"";
+        position:absolute;
+        inset:-1px;
+        border-radius: 44px;
+        background: radial-gradient(600px 220px at 30% 0%, rgba(255,255,255,.16), transparent 60%);
+        pointer-events:none;
+        opacity:.85;
+      }
+      .notch{
+        position:absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 44%;
+        height: 22px;
+        border-radius: 0 0 18px 18px;
+        background: rgba(0,0,0,.65);
+        border: 1px solid rgba(255,255,255,.06);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+        z-index: 4;
+      }
+      .screen{
+        position:relative;
+        border-radius: 34px;
+        overflow:hidden;
+        background:
+          radial-gradient(700px 420px at 30% 10%, rgba(99,102,241,.20), transparent 60%),
+          radial-gradient(650px 420px at 80% 20%, rgba(59,130,246,.16), transparent 60%),
+          linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
         border: 1px solid rgba(255,255,255,.10);
+        min-height: 520px;
+      }
+      @media (max-width: 980px){
+        .screen{ min-height: 520px; }
+      }
+      .screen-inner{ padding: 18px 16px 16px; }
+      .mini-top{
+        display:flex; justify-content:space-between; align-items:center; gap:10px;
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.65);
+        padding-top: 14px; /* space under notch */
+      }
+      .mini-chip{
+        padding: 9px 11px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
         background: rgba(255,255,255,.05);
       }
-      .blocks{
-        margin-top: 16px;
-        display:grid;
-        gap: 10px;
-      }
-      .block{
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,.10);
+      .mini-grid{ margin-top: 14px; display:grid; gap: 10px; }
+      .mini-card{
+        border-radius: 22px;
+        border: 1px solid rgba(255,255,255,.12);
         background: rgba(255,255,255,.05);
         padding: 14px;
       }
-      .blockTitle{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        font-weight: 900;
-        letter-spacing: -0.02em;
+      .mini-title{
+        display:flex; align-items:center; justify-content:space-between; gap:10px;
+        font-weight: 950;
+        letter-spacing:-.02em;
       }
-      .badge{
+      .mini-badge{
         font-size: 10px;
-        font-weight: 900;
+        font-weight: 950;
         letter-spacing: .18em;
         text-transform: uppercase;
         padding: 6px 10px;
         border-radius: 999px;
-        border: 1px solid rgba(99,102,241,.25);
+        border: 1px solid rgba(99,102,241,.28);
         background: rgba(99,102,241,.12);
         color: rgba(199,210,254,.95);
+        white-space:nowrap;
       }
-      .empty{
+      .mini-empty{
         margin-top: 10px;
-        padding: 14px;
+        padding: 12px;
+        border-radius: 16px;
+        border: 1px dashed rgba(255,255,255,.18);
+        color: rgba(246,247,255,.44);
         text-align:center;
-        border-radius: 16px;
-        border: 1px dashed rgba(255,255,255,.16);
-        color: rgba(245,247,255,.45);
         font-style: italic;
-        font-weight: 800;
+        font-weight: 900;
       }
-      .apps{
+      .mini-meal{
         margin-top: 10px;
-        display:grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
+        font-weight: 950;
+        letter-spacing:-.02em;
+        line-height:1.2;
+        color: rgba(246,247,255,.92);
       }
-      .app{
+      .mini-row{
+        display:grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px;
+      }
+      .mini-app{
         border-radius: 16px;
-        border: 1px solid rgba(255,255,255,.10);
-        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.04);
         padding: 10px 8px;
         text-align:center;
       }
-      .app b{
+      .mini-app span{ font-size: 16px; }
+      .mini-app b{
         display:block;
         margin-top: 7px;
         font-size: 9px;
+        font-weight: 950;
         letter-spacing: .16em;
         text-transform: uppercase;
-        color: rgba(245,247,255,.62);
-        font-weight: 900;
+        color: rgba(246,247,255,.60);
       }
-      .app span{font-size: 16px}
 
-      /* Section */
+      .device-label{
+        margin-top: 10px;
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.58);
+        display:flex;
+        align-items:center;
+        gap:10px;
+      }
+      .pill{
+        display:inline-flex;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.04);
+        color: rgba(246,247,255,.70);
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+      }
+
+      /* Wall tablet device */
+      .tabletWrap{
+        display:flex;
+        flex-direction:column;
+        gap: 10px;
+      }
+      .tablet{
+        position:relative;
+        border-radius: 36px;
+        padding: 14px;
+        background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+        border: 1px solid rgba(255,255,255,.14);
+        box-shadow: 0 40px 130px rgba(0,0,0,.58);
+        overflow:hidden;
+      }
+      .tablet::before{
+        content:"";
+        position:absolute;
+        inset:-1px;
+        border-radius: 38px;
+        background: radial-gradient(700px 260px at 25% 0%, rgba(255,255,255,.16), transparent 60%);
+        pointer-events:none;
+        opacity:.9;
+      }
+
+      /* Wall mount hint (subtle) */
+      .mount{
+        position:absolute;
+        right: 14px;
+        top: 14px;
+        width: 60px;
+        height: 22px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(0,0,0,.35);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+        opacity: .85;
+      }
+      .mount::after{
+        content:"";
+        position:absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 14px;
+        height: 14px;
+        border-radius: 99px;
+        background: rgba(255,255,255,.10);
+      }
+
+      .tabletScreen{
+        position:relative;
+        border-radius: 26px;
+        overflow:hidden;
+        background:
+          radial-gradient(900px 500px at 25% 10%, rgba(34,197,94,.14), transparent 60%),
+          radial-gradient(900px 500px at 70% 20%, rgba(59,130,246,.14), transparent 60%),
+          linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+        border: 1px solid rgba(255,255,255,.10);
+        min-height: 410px;
+      }
+      .tabletInner{ padding: 18px; }
+
+      .wallTop{
+        display:flex; align-items:flex-end; justify-content:space-between; gap: 12px;
+      }
+      .wallTop .meta{
+        display:flex; flex-direction:column; gap: 6px;
+      }
+      .wallTop .meta span{
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .20em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.62);
+      }
+      .wallActions{ display:flex; gap: 10px; }
+      .wallBtn{
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.05);
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.82);
+      }
+
+      .wallGrid{
+        margin-top: 14px;
+        display:grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 12px;
+      }
+      @media (max-width: 980px){
+        .wallGrid{ grid-template-columns: 1fr; }
+        .tabletScreen{ min-height: 440px; }
+      }
+
+      .wallCard{
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.05);
+        padding: 16px;
+        min-height: 160px;
+      }
+      .wallCard.big{ min-height: 240px; }
+      .wallCard .head{
+        display:flex; justify-content:space-between; align-items:center; gap: 12px;
+      }
+      .wallCard .head b{
+        font-size: 16px;
+        font-weight: 950;
+        letter-spacing: -.02em;
+      }
+      .wallCard .head .count{
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(59,130,246,.22);
+        background: rgba(59,130,246,.10);
+        color: rgba(191,219,254,.92);
+        white-space: nowrap;
+      }
+
+      .wallList{
+        margin-top: 12px;
+        display:grid;
+        gap: 10px;
+      }
+      .wallItem{
+        display:flex; align-items:center; gap: 12px;
+        padding: 12px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.04);
+      }
+      .dateBox{
+        width: 48px; height: 48px;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+      }
+      .dateBox small{
+        font-size: 9px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.52);
+      }
+      .dateBox b{
+        font-size: 18px;
+        font-weight: 950;
+        letter-spacing: -.03em;
+      }
+      .wallItem .txt{ min-width:0; }
+      .wallItem .txt b{
+        display:block;
+        font-weight: 950;
+        letter-spacing:-.02em;
+        white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      }
+      .wallItem .txt span{
+        display:block;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: .10em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.55);
+      }
+
+      .appsGrid{
+        margin-top: 12px;
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .appTile{
+        border-radius: 22px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.04);
+        padding: 14px;
+        display:flex; align-items:center; gap: 12px;
+      }
+      .appIcon{
+        width: 44px; height: 44px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+        display:grid; place-items:center;
+        font-size: 18px;
+      }
+      .appTile b{
+        font-weight: 950;
+        letter-spacing:-.02em;
+      }
+      .appTile span{
+        display:block;
+        margin-top: 4px;
+        font-size: 11px;
+        color: rgba(246,247,255,.55);
+      }
+
+      /* Sections */
       .section{
-        margin-top: 80px;
+        margin-top: 78px;
         padding-top: 10px;
       }
-      .headline{
-        font-size: 28px;
-        letter-spacing: -0.03em;
-        font-weight: 900;
+      .h2{
+        font-size: 30px;
+        font-weight: 950;
+        letter-spacing: -.04em;
+        margin: 0;
       }
       .lead{
         margin-top: 10px;
-        max-width: 760px;
+        max-width: 820px;
         color: var(--muted);
-        line-height: 1.7;
+        line-height: 1.75;
       }
-      .grid{
+      .tiles{
         margin-top: 18px;
         display:grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
       }
-      @media (max-width: 980px){ .grid{grid-template-columns: 1fr} }
+      @media (max-width: 980px){
+        .tiles{ grid-template-columns: 1fr; }
+      }
       .tile{
-        border-radius: 22px;
-        border: 1px solid var(--hair);
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,.12);
         background: rgba(255,255,255,.04);
         padding: 18px;
       }
-      .tile h3{
-        margin:0;
+      .tile b{
+        display:block;
         font-size: 16px;
-        font-weight: 900;
-        letter-spacing: -0.02em;
+        font-weight: 950;
+        letter-spacing: -.02em;
       }
       .tile p{
-        margin: 8px 0 0;
-        color: rgba(245,247,255,.62);
-        line-height: 1.65;
+        margin: 10px 0 0;
+        color: rgba(246,247,255,.60);
+        line-height: 1.7;
       }
 
       /* Footer */
       footer{
         margin-top: 70px;
-        padding-top: 26px;
+        padding-top: 24px;
         border-top: 1px solid rgba(255,255,255,.08);
-        color: rgba(245,247,255,.52);
+        color: rgba(246,247,255,.52);
         font-size: 12px;
-        font-weight: 700;
-      }
-      .footRow{
+        font-weight: 800;
         display:flex;
-        justify-content:space-between;
-        gap: 12px;
-        flex-wrap: wrap;
         align-items:center;
+        justify-content:space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* Subtle divider */
+      .divider{
+        height:1px;
+        margin: 58px 0 0;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,.10), transparent);
       }
     </style>
   </head>
 
   <body>
     <div class="wrap">
-      <div class="top">
+      <header class="top">
         <div class="brand">
           <div class="mark">PH</div>
-          <div class="name">Family Hub på Plurima</div>
+          <div class="name">
+            <b>Family Hub på Plurima</b>
+            <span>Familielogistik, perfekt samlet</span>
+          </div>
         </div>
         <nav class="nav">
-          <a class="link" href="#hvorfor">Hvorfor</a>
+          <a class="link" href="#showcase">Visninger</a>
+          <a class="link" href="#why">Hvorfor</a>
           <a class="link" href="#download">Download</a>
         </nav>
-      </div>
+      </header>
 
-      <section class="hero">
+      <section class="hero" id="showcase">
         <div>
           <div class="kicker"><span class="dot"></span> Nu på App Store & Google Play</div>
 
-          <h1>Familielogistik.<br />Perfekt samlet.</h1>
+          <h1>
+            Én hub.<br />
+            Ingen støj.
+          </h1>
 
           <p class="sub">
-            Kalender, madplan, opgaver, indkøb, skole, ønsker og familie-aktivitet —
-            samlet i én rolig hub, alle forstår. Ingen støj. Bare overblik.
+            Kalender, madplan, opgaver, indkøb, skole og ønsker — samlet i en rolig oplevelse,
+            der føles som et produkt-lancering, hver gang du åbner den.
           </p>
 
           <div class="cta">
-            <!-- Sæt dine rigtige links ind her -->
-            <a class="btn primary" href="#" target="_blank" rel="noopener">App Store</a>
-            <a class="btn ghost" href="#" target="_blank" rel="noopener">Google Play</a>
+            <a class="btn primary" id="appstore" href="#" target="_blank" rel="noopener">App Store</a>
+            <a class="btn ghost" id="playstore" href="#" target="_blank" rel="noopener">Google Play</a>
           </div>
 
           <div class="fine">
             All-in-one. Best-in-market. Stop med at lede efter “den rigtige løsning”.
           </div>
+
+          <div class="divider"></div>
+
+          <div class="device-label" style="margin-top:18px;">
+            <span class="pill">iPhone</span>
+            <span class="pill">Wall Tablet</span>
+            <span class="pill">Simpelt</span>
+            <span class="pill">Lækkert</span>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="preview">
-            <div class="frame">
-              <div class="miniTop">
-                <span>Tirsdag · 16:36</span>
-                <div class="chips">
-                  <span class="chip">Hjælp</span>
-                  <span class="chip">Indstillinger</span>
+        <aside class="showcase" aria-label="Device showcase">
+          <div class="show-head">
+            <div>
+              <h2>To måder at bruge den på</h2>
+              <p>
+                På farten (iPhone) og hjemme (tablet på væggen). Samme overblik. Samme ro.
+              </p>
+            </div>
+          </div>
+
+          <div class="devices">
+            <!-- iPhone -->
+            <div>
+              <div class="phone" aria-label="iPhone preview">
+                <div class="notch" aria-hidden="true"></div>
+                <div class="screen">
+                  <div class="screen-inner">
+                    <div class="mini-top">
+                      <span>Tirsdag · 16:36</span>
+                      <span style="display:flex; gap:8px;">
+                        <span class="mini-chip">Hjælp</span>
+                        <span class="mini-chip">Indstillinger</span>
+                      </span>
+                    </div>
+
+                    <div class="mini-grid">
+                      <div class="mini-card">
+                        <div class="mini-title">
+                          <span>Aftaler</span>
+                          <span class="mini-badge">0 i dag</span>
+                        </div>
+                        <div class="mini-empty">Ingen planer — slap af!</div>
+                      </div>
+
+                      <div class="mini-card">
+                        <div class="mini-title">
+                          <span>Madplan</span>
+                          <span class="mini-badge" style="border-color:rgba(249,115,22,.28); background:rgba(249,115,22,.10); color:rgba(254,215,170,.95);">
+                            I aften
+                          </span>
+                        </div>
+                        <div class="mini-meal">
+                          Hakkebøf med bløde løg, skysovs og kogte kartofler
+                        </div>
+                      </div>
+
+                      <div class="mini-card">
+                        <div class="mini-title">
+                          <span>Apps</span>
+                          <span class="mini-badge" style="border-color:rgba(34,197,94,.25); background:rgba(34,197,94,.10); color:rgba(187,247,208,.92);">
+                            Hurtigt
+                          </span>
+                        </div>
+                        <div class="mini-row">
+                          <div class="mini-app"><span>📅</span><b>Kalender</b></div>
+                          <div class="mini-app"><span>🍽️</span><b>Madplan</b></div>
+                          <div class="mini-app"><span>✅</span><b>Opgaver</b></div>
+                          <div class="mini-app"><span>🛒</span><b>Indkøb</b></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="blocks">
-                <div class="block">
-                  <div class="blockTitle">
-                    <span>Aftaler</span>
-                    <span class="badge">0 i dag</span>
-                  </div>
-                  <div class="empty">Ingen planer — slap af!</div>
-                </div>
+              <div class="device-label">
+                <span>iPhone</span>
+                <span class="pill">På farten</span>
+              </div>
+            </div>
 
-                <div class="block">
-                  <div class="blockTitle">
-                    <span>Madplan</span>
-                    <span style="opacity:.65; font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:10px;">
-                      I aften
-                    </span>
-                  </div>
-                  <div style="margin-top:10px; font-weight:900; letter-spacing:-0.02em; line-height:1.2;">
-                    Hakkebøf med bløde løg, skysovs og kogte kartofler
-                  </div>
-                </div>
+            <!-- Wall tablet -->
+            <div class="tabletWrap">
+              <div class="tablet" aria-label="Wall tablet preview">
+                <div class="mount" aria-hidden="true"></div>
+                <div class="tabletScreen">
+                  <div class="tabletInner">
+                    <div class="wallTop">
+                      <div class="meta">
+                        <span>Tirsdag · 16:36</span>
+                        <span style="opacity:.6;">Family Dashboard (Wall Mode)</span>
+                      </div>
+                      <div class="wallActions">
+                        <div class="wallBtn">Hjælp</div>
+                        <div class="wallBtn">Indstillinger</div>
+                      </div>
+                    </div>
 
-                <div class="block">
-                  <div class="blockTitle">
-                    <span>Apps</span>
-                    <span style="opacity:.55; font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:10px;">
-                      Alt i én hub
-                    </span>
-                  </div>
-                  <div class="apps" aria-label="Apps & værktøjer">
-                    <div class="app"><span>📅</span><b>Kalender</b></div>
-                    <div class="app"><span>🍽️</span><b>Madplan</b></div>
-                    <div class="app"><span>✅</span><b>Opgaver</b></div>
-                    <div class="app"><span>🛒</span><b>Indkøb</b></div>
+                    <div class="wallGrid">
+                      <div class="wallCard big">
+                        <div class="head">
+                          <b>Aftaler</b>
+                          <span class="count">2 i dag</span>
+                        </div>
+
+                        <div class="wallList">
+                          <div class="wallItem">
+                            <div class="dateBox">
+                              <small>Tir</small>
+                              <b>20</b>
+                            </div>
+                            <div class="txt">
+                              <b>Fodboldtræning</b>
+                              <span>17:00 · Ude</span>
+                            </div>
+                          </div>
+
+                          <div class="wallItem">
+                            <div class="dateBox">
+                              <small>Tir</small>
+                              <b>20</b>
+                            </div>
+                            <div class="txt">
+                              <b>Indkøb + aftensmad</b>
+                              <span>18:30 · Hjemme</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="wallCard">
+                        <div class="head">
+                          <b>Madplan</b>
+                          <span class="count" style="border-color:rgba(249,115,22,.22); background:rgba(249,115,22,.10); color:rgba(254,215,170,.92);">
+                            I aften
+                          </span>
+                        </div>
+                        <div style="margin-top:12px; font-weight:950; letter-spacing:-.02em; line-height:1.2;">
+                          Hakkebøf med bløde løg<br />skysovs & kartofler
+                        </div>
+
+                        <div style="margin-top:14px; color:rgba(246,247,255,.55); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase;">
+                          Klar til indkøbsliste →</div>
+                      </div>
+                    </div>
+
+                    <div class="wallCard" style="margin-top:12px;">
+                      <div class="head">
+                        <b>Apps & værktøjer</b>
+                        <span class="count" style="border-color:rgba(34,197,94,.20); background:rgba(34,197,94,.10); color:rgba(187,247,208,.92);">
+                          Alt samlet
+                        </span>
+                      </div>
+
+                      <div class="appsGrid">
+                        <div class="appTile">
+                          <div class="appIcon">✅</div>
+                          <div>
+                            <b>Opgaver</b>
+                            <span>fordel og følg med</span>
+                          </div>
+                        </div>
+                        <div class="appTile">
+                          <div class="appIcon">🛒</div>
+                          <div>
+                            <b>Indkøb</b>
+                            <span>klar på 10 sek</span>
+                          </div>
+                        </div>
+                        <div class="appTile">
+                          <div class="appIcon">🎓</div>
+                          <div>
+                            <b>Skole</b>
+                            <span>intet glemmes</span>
+                          </div>
+                        </div>
+                        <div class="appTile">
+                          <div class="appIcon">⭐</div>
+                          <div>
+                            <b>Ønsker</b>
+                            <span>samlet ét sted</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
+              </div>
+
+              <div class="device-label">
+                <span>Wall Tablet</span>
+                <span class="pill">Hjemme</span>
+                <span class="pill">Altid synlig</span>
               </div>
             </div>
           </div>
+        </aside>
+      </section>
+
+      <section class="section" id="why">
+        <h2 class="h2">Hvorfor det ændrer hverdagen</h2>
+        <p class="lead">
+          Det er ikke de store ting, der dræner — det er mikro-beskederne, de små “hvem gør hvad?” og “hvad skal vi spise?”.
+          Family Hub på Plurima samler det hele i én rolig oplevelse, så alle ved hvad der sker — uden at nogen skal være familiens koordinator.
+        </p>
+
+        <div class="tiles">
+          <div class="tile">
+            <b>Mindre mental load</b>
+            <p>Overblik er synligt for alle — både på mobil og på væggen. Det giver ro.</p>
+          </div>
+          <div class="tile">
+            <b>Færre afbrydelser</b>
+            <p>Planer, opgaver og madplan ligger ét sted. Mindre “husk lige…” hele dagen.</p>
+          </div>
+          <div class="tile">
+            <b>Mere nærvær</b>
+            <p>Når logistikken kører, frigiver I tid og energi til det, der betyder noget.</p>
+          </div>
         </div>
       </section>
 
-      <section id="hvorfor" class="section">
-        <div class="headline">Hvorfor det ændrer hverdagen</div>
-        <div class="lead">
-          Familier mister ikke overblik på “de store ting” — men på de små. Med Family Hub på Plurima
-          forsvinder friktionen: alle ved hvad der sker, hvad vi spiser, og hvem der gør hvad.
-        </div>
-
-        <div class="grid">
-          <div class="tile">
-            <h3>Mindre mental load</h3>
-            <p>Overblik er synligt for alle. Ingen skal være familiens koordinator alene.</p>
-          </div>
-          <div class="tile">
-            <h3>Færre beskeder</h3>
-            <p>Planer, opgaver og indkøb er samlet. Mindre “husk lige…” hele dagen.</p>
-          </div>
-          <div class="tile">
-            <h3>Mere ro sammen</h3>
-            <p>Når logistikken kører, får I tid til det, der betyder noget.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="download" class="section">
-        <div class="headline">Download i dag</div>
-        <div class="lead">
-          Én hub. Ingen kompromiser. Klar til App Store og Google Play.
-        </div>
+      <section class="section" id="download">
+        <h2 class="h2">Download i dag</h2>
+        <p class="lead">
+          Én hub. Ingen kompromiser. Klar på App Store og Google Play.
+        </p>
 
         <div class="cta" style="margin-top:16px;">
-          <!-- Sæt dine rigtige links ind her -->
-          <a class="btn primary" href="#" target="_blank" rel="noopener">App Store</a>
-          <a class="btn ghost" href="#" target="_blank" rel="noopener">Google Play</a>
+          <a class="btn primary" id="appstore2" href="#" target="_blank" rel="noopener">App Store</a>
+          <a class="btn ghost" id="playstore2" href="#" target="_blank" rel="noopener">Google Play</a>
         </div>
       </section>
 
       <footer>
-        <div class="footRow">
-          <div>© <span id="y"></span> Plurima — Family Hub på Plurima</div>
-          <div style="opacity:.85">Simple. Sofistikeret. All-in-one.</div>
-        </div>
+        <div>© <span id="y"></span> Plurima — Family Hub på Plurima</div>
+        <div style="opacity:.85;">Simple. Sofistikeret. All-in-one.</div>
       </footer>
     </div>
 
     <script>
+      // Sæt dine rigtige links ind her:
+      const APP_STORE_URL = "#";
+      const GOOGLE_PLAY_URL = "#";
+
+      // Apply links
+      const set = (id, url) => { const el = document.getElementById(id); if (el) el.href = url; };
+      set("appstore", APP_STORE_URL);
+      set("playstore", GOOGLE_PLAY_URL);
+      set("appstore2", APP_STORE_URL);
+      set("playstore2", GOOGLE_PLAY_URL);
+
+      // Year
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
   </body>

@@ -4,33 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Family Hub på Plurima</title>
-    <meta
-      name="description"
-      content="Family Hub på Plurima — den nye standard for familielogistik. iPhone i hånden. Tablet på væggen."
-    />
+    <meta name="description" content="Family Hub på Plurima — iPhone i hånden. Tablet på væggen. Den nye standard for familielogistik." />
 
     <style>
       :root{
-        --bg0:#07080c;
-        --bg1:#0b0d14;
+        --bg0:#06070b;
+        --bg1:#0b0d16;
 
         --text:#f6f7ff;
         --muted:rgba(246,247,255,.68);
         --muted2:rgba(246,247,255,.52);
 
         --hair:rgba(255,255,255,.12);
+        --hair2:rgba(255,255,255,.08);
         --glass:rgba(255,255,255,.06);
-        --glass2:rgba(255,255,255,.10);
 
-        --shadow: 0 56px 150px rgba(0,0,0,.66);
+        --shadow: 0 56px 160px rgba(0,0,0,.70);
         --shadow2: 0 22px 70px rgba(0,0,0,.45);
-
-        --radius: 26px;
-        --radius2: 34px;
-        --radius3: 48px;
 
         --accent: rgba(255,255,255,.92);
         --black: #07080c;
+
+        --radius3: 52px;
+
+        --blue:#3b82f6;
+        --orange:#f97316;
+        --green:#22c55e;
+        --emerald:#10b981;
+        --rose:#f43f5e;
+        --amber:#f59e0b;
+        --indigo:#6366f1;
+        --purple:#7c3aed;
+
+        --appShadow: 0 18px 40px rgba(0,0,0,.28);
       }
 
       *{ box-sizing:border-box }
@@ -40,21 +46,21 @@
         color:var(--text);
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
         background:
-          radial-gradient(1100px 720px at 22% 12%, rgba(99,102,241,.24), transparent 60%),
-          radial-gradient(1000px 680px at 78% 18%, rgba(59,130,246,.18), transparent 62%),
-          radial-gradient(900px 700px at 55% 92%, rgba(249,115,22,.12), transparent 62%),
+          radial-gradient(1200px 820px at 18% 12%, rgba(99,102,241,.24), transparent 60%),
+          radial-gradient(1100px 760px at 82% 18%, rgba(59,130,246,.18), transparent 62%),
+          radial-gradient(900px 760px at 55% 92%, rgba(249,115,22,.10), transparent 64%),
           linear-gradient(180deg, var(--bg0), var(--bg1));
         overflow-x:hidden;
       }
       a{ color:inherit; text-decoration:none }
 
       .wrap{
-        max-width: 1200px;
+        max-width: 1240px;
         margin:0 auto;
-        padding: 26px 18px 80px;
+        padding: 26px 18px 86px;
       }
 
-      /* Top bar (minimal) */
+      /* top */
       .top{
         display:flex;
         align-items:center;
@@ -71,19 +77,14 @@
         width:42px; height:42px;
         border-radius: 16px;
         border: 1px solid var(--hair);
-        background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
-        box-shadow: 0 18px 52px rgba(0,0,0,.35);
+        background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
+        box-shadow: 0 18px 56px rgba(0,0,0,.35);
         display:grid;
         place-items:center;
         font-weight: 950;
         letter-spacing: -0.04em;
       }
-      .brandText{
-        display:flex;
-        flex-direction:column;
-        gap: 2px;
-        min-width:0;
-      }
+      .brandText{ display:flex; flex-direction:column; gap:2px; min-width:0; }
       .brandText b{
         font-size: 12px;
         font-weight: 950;
@@ -91,7 +92,7 @@
         text-transform: uppercase;
         color: rgba(246,247,255,.80);
         white-space: nowrap;
-        overflow: hidden;
+        overflow:hidden;
         text-overflow: ellipsis;
       }
       .brandText span{
@@ -99,10 +100,9 @@
         font-weight: 800;
         color: rgba(246,247,255,.70);
         white-space: nowrap;
-        overflow: hidden;
+        overflow:hidden;
         text-overflow: ellipsis;
       }
-
       .nav{ display:flex; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
       .link{
         font-size: 12px;
@@ -120,15 +120,14 @@
         background: rgba(255,255,255,.04);
       }
 
-      /* Hero (centered focus) */
+      /* hero */
       .hero{
-        margin-top: 56px;
+        margin-top: 58px;
         display:flex;
         flex-direction:column;
         align-items:center;
         text-align:center;
       }
-
       .kicker{
         display:inline-flex;
         align-items:center;
@@ -151,7 +150,7 @@
 
       h1{
         margin: 18px 0 0;
-        font-size: clamp(40px, 5.4vw, 70px);
+        font-size: clamp(40px, 5.4vw, 72px);
         line-height: 1.02;
         letter-spacing: -0.07em;
         font-weight: 950;
@@ -162,7 +161,7 @@
         font-size: 18px;
         line-height: 1.7;
         color: var(--muted);
-        max-width: 840px;
+        max-width: 900px;
       }
 
       .cta{
@@ -209,353 +208,28 @@
         font-weight: 800;
       }
 
-      /* Devices (center focus) */
-      .deviceStage{
-        margin-top: 36px;
+      /* stage */
+      .stage{
+        margin-top: 40px;
         width: 100%;
         display:flex;
         justify-content:center;
       }
-
       .devices{
         width: 100%;
-        max-width: 1100px;
+        max-width: 1160px;
         display:grid;
         grid-template-columns: 0.95fr 1.35fr;
         gap: 18px;
         align-items:center;
       }
-      @media (max-width: 980px){
+      @media (max-width: 1000px){
         .devices{ grid-template-columns: 1fr; }
       }
 
-      /* Common device shell */
-      .shell{
-        position:relative;
-        border-radius: var(--radius3);
-        border: 1px solid rgba(255,255,255,.14);
-        background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-        box-shadow: var(--shadow);
-        overflow:hidden;
-      }
-      .shell::before{
-        content:"";
-        position:absolute;
-        inset:-1px;
-        border-radius: calc(var(--radius3) + 2px);
-        background: radial-gradient(700px 260px at 25% 0%, rgba(255,255,255,.16), transparent 60%);
-        pointer-events:none;
-        opacity:.85;
-      }
-
-      /* iPhone (upright) */
-      .phoneShell{
-        padding: 12px;
-        border-radius: 48px;
-      }
-      .phoneShell::before{
-        border-radius: 50px;
-      }
-      .notch{
-        position:absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 44%;
-        height: 22px;
-        border-radius: 0 0 18px 18px;
-        background: rgba(0,0,0,.65);
-        border: 1px solid rgba(255,255,255,.06);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-        z-index: 4;
-      }
-      .phoneScreen{
-        position:relative;
-        border-radius: 36px;
-        overflow:hidden;
-        border: 1px solid rgba(255,255,255,.10);
-        background:
-          radial-gradient(700px 420px at 30% 10%, rgba(99,102,241,.20), transparent 60%),
-          radial-gradient(650px 420px at 80% 20%, rgba(59,130,246,.16), transparent 60%),
-          linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-        min-height: 560px;
-      }
-      .phoneInner{ padding: 18px 16px 16px; }
-      .miniTop{
-        display:flex; justify-content:space-between; align-items:center; gap:10px;
-        font-size: 10px;
-        font-weight: 950;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        color: rgba(246,247,255,.65);
-        padding-top: 14px;
-      }
-      .miniChip{
-        padding: 9px 11px;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.05);
-      }
-      .miniGrid{ margin-top: 14px; display:grid; gap: 10px; }
-      .miniCard{
-        border-radius: 22px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.05);
-        padding: 14px;
-      }
-      .miniTitle{
-        display:flex; align-items:center; justify-content:space-between; gap:10px;
-        font-weight: 950;
-        letter-spacing:-.02em;
-      }
-      .miniBadge{
-        font-size: 10px;
-        font-weight: 950;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(99,102,241,.28);
-        background: rgba(99,102,241,.12);
-        color: rgba(199,210,254,.95);
-        white-space:nowrap;
-      }
-      .miniEmpty{
-        margin-top: 10px;
-        padding: 12px;
-        border-radius: 16px;
-        border: 1px dashed rgba(255,255,255,.18);
-        color: rgba(246,247,255,.44);
-        text-align:center;
-        font-style: italic;
-        font-weight: 900;
-      }
-      .miniMeal{
-        margin-top: 10px;
-        font-weight: 950;
-        letter-spacing:-.02em;
-        line-height:1.2;
-        color: rgba(246,247,255,.92);
-      }
-      .miniRow{
-        display:grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px;
-      }
-      .miniApp{
-        border-radius: 16px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.04);
-        padding: 10px 8px;
-        text-align:center;
-      }
-      .miniApp span{ font-size: 16px; }
-      .miniApp b{
-        display:block;
-        margin-top: 7px;
-        font-size: 9px;
-        font-weight: 950;
-        letter-spacing: .16em;
-        text-transform: uppercase;
-        color: rgba(246,247,255,.60);
-      }
-
-      /* Tablet (landscape, wall-visible) */
-      .tabletShell{
-        padding: 14px;
-        border-radius: 42px;
-      }
-      .tabletShell::before{
-        border-radius: 44px;
-      }
-      .mount{
-        position:absolute;
-        top: 14px;
-        right: 14px;
-        width: 64px;
-        height: 24px;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,.10);
-        background: rgba(0,0,0,.35);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-        opacity:.85;
-        z-index: 3;
-      }
-      .mount::after{
-        content:"";
-        position:absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        width: 14px;
-        height: 14px;
-        border-radius: 99px;
-        background: rgba(255,255,255,.10);
-      }
-      .tabletScreen{
-        position:relative;
-        border-radius: 28px;
-        overflow:hidden;
-        border: 1px solid rgba(255,255,255,.10);
-        background:
-          radial-gradient(950px 520px at 25% 10%, rgba(34,197,94,.14), transparent 62%),
-          radial-gradient(950px 520px at 70% 20%, rgba(59,130,246,.14), transparent 62%),
-          linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-        min-height: 420px;
-      }
-      .tabletInner{ padding: 18px; }
-
-      .wallTop{
-        display:flex;
-        align-items:flex-end;
-        justify-content:space-between;
-        gap: 12px;
-      }
-      .wallMeta{
-        display:flex;
-        flex-direction:column;
-        gap: 6px;
-      }
-      .wallMeta span{
-        font-size: 10px;
-        font-weight: 950;
-        letter-spacing: .20em;
-        text-transform: uppercase;
-        color: rgba(246,247,255,.62);
-      }
-      .wallActions{ display:flex; gap: 10px; }
-      .wallBtn{
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.05);
-        font-size: 10px;
-        font-weight: 950;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        color: rgba(246,247,255,.84);
-      }
-
-      .wallGrid{
-        margin-top: 14px;
-        display:grid;
-        grid-template-columns: 1.25fr 0.75fr;
-        gap: 12px;
-      }
-      @media (max-width: 980px){
-        .wallGrid{ grid-template-columns: 1fr; }
-        .tabletScreen{ min-height: 460px; }
-      }
-
-      .wallCard{
-        border-radius: 24px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.05);
-        padding: 16px;
-        min-height: 160px;
-      }
-      .wallCard.big{ min-height: 260px; }
-      .wallHead{
-        display:flex; justify-content:space-between; align-items:center; gap: 12px;
-      }
-      .wallHead b{
-        font-size: 16px;
-        font-weight: 950;
-        letter-spacing: -.02em;
-      }
-      .count{
-        font-size: 10px;
-        font-weight: 950;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(59,130,246,.22);
-        background: rgba(59,130,246,.10);
-        color: rgba(191,219,254,.92);
-        white-space: nowrap;
-      }
-
-      .wallList{
-        margin-top: 12px;
-        display:grid;
-        gap: 10px;
-      }
-      .wallItem{
-        display:flex; align-items:center; gap: 12px;
-        padding: 12px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,.10);
-        background: rgba(255,255,255,.04);
-      }
-      .dateBox{
-        width: 52px; height: 52px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.06);
-        display:flex; flex-direction:column; align-items:center; justify-content:center;
-      }
-      .dateBox small{
-        font-size: 9px;
-        font-weight: 950;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        color: rgba(246,247,255,.52);
-      }
-      .dateBox b{
-        font-size: 18px;
-        font-weight: 950;
-        letter-spacing: -.03em;
-      }
-      .wallTxt{ min-width:0; }
-      .wallTxt b{
-        display:block;
-        font-weight: 950;
-        letter-spacing:-.02em;
-        white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-      }
-      .wallTxt span{
-        display:block;
-        margin-top: 6px;
-        font-size: 11px;
-        font-weight: 900;
-        letter-spacing: .10em;
-        text-transform: uppercase;
-        color: rgba(246,247,255,.55);
-      }
-
-      .appsGrid{
-        margin-top: 12px;
-        display:grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-      .appTile{
-        border-radius: 22px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.04);
-        padding: 14px;
-        display:flex; align-items:center; gap: 12px;
-      }
-      .appIcon{
-        width: 46px; height: 46px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.06);
-        display:grid; place-items:center;
-        font-size: 18px;
-      }
-      .appTile b{
-        font-weight: 950;
-        letter-spacing:-.02em;
-      }
-      .appTile span{
-        display:block;
-        margin-top: 4px;
-        font-size: 11px;
-        color: rgba(246,247,255,.55);
-      }
-
-      /* Device captions */
-      .captionRow{
+      /* --- DEVICE REALISM COMMON --- */
+      .deviceWrap{ position:relative; }
+      .deviceCaption{
         margin-top: 12px;
         display:flex;
         justify-content:space-between;
@@ -581,9 +255,603 @@
         white-space:nowrap;
       }
 
-      /* Lower section minimal */
+      .outer{
+        position:relative;
+        border-radius: var(--radius3);
+        border: 1px solid rgba(255,255,255,.14);
+        background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+        box-shadow: var(--shadow);
+        overflow:hidden;
+      }
+      .outer::before{
+        content:"";
+        position:absolute;
+        inset:-1px;
+        border-radius: calc(var(--radius3) + 2px);
+        background: radial-gradient(900px 320px at 18% 0%, rgba(255,255,255,.18), transparent 60%);
+        pointer-events:none;
+        opacity:.9;
+      }
+      .outer::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        border-radius: inherit;
+        background: linear-gradient(180deg, rgba(255,255,255,.08), transparent 30%, rgba(0,0,0,.10));
+        pointer-events:none;
+        opacity:.55;
+      }
+
+      /* Side buttons (phone & tablet) */
+      .btnSide{
+        position:absolute;
+        width: 4px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.06));
+        border: 1px solid rgba(0,0,0,.35);
+        box-shadow: 0 8px 18px rgba(0,0,0,.35);
+        opacity:.9;
+        z-index: 30;
+      }
+
+      /* --- iPHONE --- */
+      .phoneOuter{
+        padding: 12px;
+        border-radius: 54px;
+      }
+      .phoneOuter::before{ border-radius: 56px; }
+
+      .phoneButtons .b1{ left:-6px; top: 110px; height: 44px; }
+      .phoneButtons .b2{ left:-6px; top: 170px; height: 70px; }
+      .phoneButtons .b3{ left:-6px; top: 250px; height: 70px; }
+      .phoneButtons .power{ right:-6px; top: 150px; height: 92px; }
+
+      .phoneBezel{
+        position:relative;
+        border-radius: 42px;
+        background: rgba(0,0,0,.62);
+        border: 1px solid rgba(255,255,255,.08);
+        padding: 10px;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+        overflow:hidden;
+      }
+
+      /* notch with speaker + camera */
+      .notch{
+        position:absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 44%;
+        height: 26px;
+        border-radius: 0 0 18px 18px;
+        background: rgba(0,0,0,.80);
+        border: 1px solid rgba(255,255,255,.06);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+        z-index: 20;
+      }
+      .notch .speaker{
+        position:absolute;
+        left: 50%;
+        top: 9px;
+        transform: translateX(-50%);
+        width: 44px;
+        height: 6px;
+        border-radius: 99px;
+        background: rgba(255,255,255,.10);
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,.45);
+        opacity:.9;
+      }
+      .notch .cam{
+        position:absolute;
+        right: 14px;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,.06) 35%, rgba(0,0,0,.9) 60%);
+        border: 1px solid rgba(255,255,255,.06);
+        opacity:.95;
+      }
+
+      .phoneScreen{
+        position:relative;
+        border-radius: 34px;
+        overflow:hidden;
+        border: 1px solid rgba(255,255,255,.10);
+        background:
+          radial-gradient(720px 460px at 30% 10%, rgba(99,102,241,.22), transparent 60%),
+          radial-gradient(700px 460px at 80% 20%, rgba(59,130,246,.16), transparent 60%),
+          linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+        min-height: 610px;
+      }
+      .homeIndicator{
+        position:absolute;
+        left:50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        width: 40%;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.35);
+        z-index: 18;
+      }
+
+      .statusbar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding: 14px 14px 8px;
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.70);
+      }
+      .sbRight{ display:flex; align-items:center; gap: 8px; }
+      .sig{ display:flex; gap:2px; align-items:flex-end; }
+      .sig i{ display:block; width:3px; border-radius:2px; background: rgba(246,247,255,.70); }
+      .sig i:nth-child(1){ height:6px; opacity:.55 }
+      .sig i:nth-child(2){ height:8px; opacity:.65 }
+      .sig i:nth-child(3){ height:10px; opacity:.8 }
+      .sig i:nth-child(4){ height:12px; opacity:.95 }
+      .battery{
+        width: 22px;
+        height: 10px;
+        border-radius: 3px;
+        border: 1px solid rgba(246,247,255,.55);
+        position:relative;
+      }
+      .battery::after{
+        content:"";
+        position:absolute;
+        right:-3px;
+        top:3px;
+        width:2px;
+        height:4px;
+        border-radius: 2px;
+        background: rgba(246,247,255,.55);
+      }
+      .battery b{
+        position:absolute;
+        inset:1px;
+        border-radius: 2px;
+        background: rgba(34,197,94,.9);
+        width: 74%;
+        display:block;
+      }
+
+      /* UI (phone+tablet) */
+      .glass{
+        border-radius: 26px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 22px 60px rgba(0,0,0,.22);
+      }
+      .row{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 10px;
+      }
+      .chip{
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.05);
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.82);
+        white-space: nowrap;
+      }
+      .iconPill{
+        display:inline-flex;
+        width: 46px;
+        height: 46px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+        align-items:center;
+        justify-content:center;
+        font-size: 18px;
+      }
+      .tiny{
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.56);
+      }
+      .title{
+        font-weight: 950;
+        letter-spacing: -0.02em;
+        font-size: 18px;
+      }
+      .badge{
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(99,102,241,.28);
+        background: rgba(99,102,241,.12);
+        color: rgba(199,210,254,.95);
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .badge.orange{
+        border-color: rgba(249,115,22,.26);
+        background: rgba(249,115,22,.10);
+        color: rgba(254,215,170,.95);
+      }
+      .badge.green{
+        border-color: rgba(34,197,94,.22);
+        background: rgba(34,197,94,.10);
+        color: rgba(187,247,208,.92);
+      }
+
+      /* phone layout */
+      .phoneInner{ padding: 6px 12px 22px; }
+      .phoneHeader{ margin-top: 6px; padding: 14px; }
+      .phoneHeader .date{
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: .20em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.60);
+      }
+      .phoneHeader .clock{
+        margin-top: 6px;
+        font-size: 26px;
+        font-weight: 950;
+        letter-spacing: -0.04em;
+      }
+      .gridPhone{ margin-top: 12px; display:grid; gap: 10px; }
+      .card{ padding: 14px; }
+
+      .eventList{ margin-top: 12px; display:grid; gap: 10px; }
+      .event{
+        display:flex;
+        gap: 12px;
+        align-items:center;
+        padding: 12px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.04);
+      }
+      .dateBox{
+        width: 48px; height: 48px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        flex: 0 0 auto;
+      }
+      .dateBox small{
+        font-size: 9px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.55);
+      }
+      .dateBox b{
+        font-size: 18px;
+        font-weight: 950;
+        letter-spacing: -0.03em;
+      }
+      .eventTxt{ min-width:0; flex: 1; text-align:left; }
+      .eventTxt b{
+        display:block;
+        font-weight: 950;
+        letter-spacing:-.02em;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      .eventTxt span{
+        display:block;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: .10em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.55);
+      }
+      .pillCount{
+        width: 34px; height: 34px;
+        border-radius: 999px;
+        display:grid;
+        place-items:center;
+        background: rgba(249,115,22,.18);
+        border: 1px solid rgba(249,115,22,.22);
+        color: rgba(254,215,170,.95);
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: .08em;
+      }
+      .pillCount.done{
+        background: rgba(34,197,94,.14);
+        border-color: rgba(34,197,94,.18);
+        color: rgba(187,247,208,.95);
+      }
+
+      .mealLine{
+        margin-top: 10px;
+        font-weight: 950;
+        letter-spacing:-.02em;
+        line-height: 1.25;
+        font-size: 16px;
+        text-align:left;
+      }
+      .hint{
+        margin-top: 12px;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.52);
+        text-align:left;
+      }
+
+      .avatars{ display:flex; align-items:center; gap: 8px; margin-top: 12px; }
+      .av{
+        width: 34px; height: 34px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.08);
+        display:grid;
+        place-items:center;
+        font-weight: 950;
+        letter-spacing:-.02em;
+        box-shadow: 0 14px 40px rgba(0,0,0,.25);
+      }
+      .bar{
+        margin-top: 10px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.10);
+        overflow:hidden;
+      }
+      .bar > i{
+        display:block;
+        height:100%;
+        width:68%;
+        background: rgba(34,197,94,.75);
+      }
+
+      /* app tiles like your dashboard */
+      .appsGridPhone{
+        margin-top: 12px;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .appTileMini{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap: 8px;
+        padding: 10px 6px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.04);
+      }
+      .appIcon{
+        width: 44px; height: 44px;
+        border-radius: 18px;
+        display:grid;
+        place-items:center;
+        color:white;
+        font-size: 18px;
+        box-shadow: var(--appShadow);
+        border: 1px solid rgba(255,255,255,.16);
+      }
+      .appLabel{
+        font-size: 9px;
+        font-weight: 950;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.62);
+      }
+
+      .bg-blue{ background: linear-gradient(180deg, rgba(59,130,246,1), rgba(59,130,246,.72)); }
+      .bg-orange{ background: linear-gradient(180deg, rgba(249,115,22,1), rgba(249,115,22,.72)); }
+      .bg-green{ background: linear-gradient(180deg, rgba(34,197,94,1), rgba(34,197,94,.72)); }
+      .bg-emerald{ background: linear-gradient(180deg, rgba(16,185,129,1), rgba(16,185,129,.72)); }
+      .bg-rose{ background: linear-gradient(180deg, rgba(244,63,94,1), rgba(244,63,94,.72)); }
+      .bg-amber{ background: linear-gradient(180deg, rgba(245,158,11,1), rgba(245,158,11,.72)); }
+      .bg-indigo{ background: linear-gradient(180deg, rgba(99,102,241,1), rgba(99,102,241,.72)); }
+      .bg-purple{ background: linear-gradient(180deg, rgba(124,58,237,1), rgba(124,58,237,.72)); }
+
+      /* --- TABLET / WALL MODE --- */
+      .tabletOuter{
+        padding: 14px;
+        border-radius: 46px;
+      }
+      .tabletOuter::before{ border-radius: 48px; }
+
+      /* True wall mount shadow + bracket */
+      .wallShadow{
+        position:absolute;
+        inset: 18px 18px 26px 18px;
+        border-radius: 44px;
+        background: rgba(0,0,0,.0);
+        box-shadow:
+          0 60px 130px rgba(0,0,0,.60),
+          0 18px 40px rgba(0,0,0,.35);
+        z-index: 0;
+        filter: blur(.0px);
+        pointer-events:none;
+      }
+      .bracket{
+        position:absolute;
+        left: 50%;
+        bottom: -20px;
+        transform: translateX(-50%);
+        width: 220px;
+        height: 34px;
+        border-radius: 999px;
+        background: rgba(0,0,0,.45);
+        border: 1px solid rgba(255,255,255,.08);
+        box-shadow: 0 18px 50px rgba(0,0,0,.55);
+        z-index: 40;
+      }
+      .bracket::after{
+        content:"";
+        position:absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 86px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.10);
+        border: 1px solid rgba(0,0,0,.35);
+        opacity:.8;
+      }
+
+      .tabletButtons .power{ right:-6px; top: 140px; height: 110px; }
+      .tabletButtons .vol1{ left:-6px; top: 120px; height: 62px; }
+      .tabletButtons .vol2{ left:-6px; top: 195px; height: 62px; }
+
+      .tabletBezel{
+        position:relative;
+        border-radius: 34px;
+        background: rgba(0,0,0,.52);
+        border: 1px solid rgba(255,255,255,.08);
+        padding: 12px;
+        overflow:hidden;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+        z-index: 2;
+      }
+
+      /* camera + speaker grills */
+      .tabletCam{
+        position:absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 99px;
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.32), rgba(255,255,255,.06) 35%, rgba(0,0,0,.92) 60%);
+        border: 1px solid rgba(255,255,255,.06);
+        z-index: 25;
+        opacity:.95;
+      }
+      .grill{
+        position:absolute;
+        top: 10px;
+        width: 86px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.06);
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,.40);
+        opacity:.65;
+        z-index: 24;
+      }
+      .grill.left{ left: 26px; }
+      .grill.right{ right: 26px; }
+
+      .tabletScreen{
+        position:relative;
+        border-radius: 28px;
+        overflow:hidden;
+        border: 1px solid rgba(255,255,255,.10);
+        background:
+          radial-gradient(1150px 620px at 20% 10%, rgba(34,197,94,.14), transparent 62%),
+          radial-gradient(1150px 620px at 70% 20%, rgba(59,130,246,.14), transparent 62%),
+          linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+        min-height: 500px;
+      }
+      .tabletInner{ padding: 18px; text-align:left; }
+
+      .tabletTop{
+        display:flex;
+        align-items:flex-end;
+        justify-content:space-between;
+        gap: 12px;
+      }
+      .tabletMeta{
+        display:flex;
+        flex-direction:column;
+        gap: 6px;
+      }
+      .tabletMeta span{
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .20em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.62);
+      }
+      .tabletActions{ display:flex; gap: 10px; }
+      .tBtn{
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.05);
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(246,247,255,.84);
+      }
+
+      .tabletGrid{
+        margin-top: 14px;
+        display:grid;
+        grid-template-columns: 1.35fr .95fr;
+        gap: 12px;
+      }
+      @media (max-width: 1000px){
+        .tabletGrid{ grid-template-columns: 1fr; }
+        .tabletScreen{ min-height: 560px; }
+      }
+
+      .bigCard{ min-height: 305px; }
+      .stack{ display:grid; gap: 12px; }
+      .sideCard{ min-height: 146px; }
+      .appsPanel{ min-height: 180px; }
+
+      .appsGridWall{
+        margin-top: 12px;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .appWall{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap: 10px;
+        padding: 14px 12px;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.04);
+      }
+      .appWall .appIcon{
+        width: 56px;
+        height: 56px;
+        border-radius: 22px;
+        font-size: 22px;
+      }
+      .appWall .appLabel{
+        font-size: 10px;
+        letter-spacing: .16em;
+      }
+
+      /* bottom section */
       .section{
-        margin-top: 70px;
+        margin-top: 74px;
         text-align:center;
       }
       .h2{
@@ -594,7 +862,7 @@
       }
       .lead{
         margin: 10px auto 0;
-        max-width: 860px;
+        max-width: 930px;
         color: var(--muted);
         line-height: 1.75;
       }
@@ -603,8 +871,9 @@
         display:grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
+        text-align:left;
       }
-      @media (max-width: 980px){
+      @media (max-width: 1000px){
         .tiles{ grid-template-columns: 1fr; }
       }
       .tile{
@@ -612,7 +881,6 @@
         border: 1px solid rgba(255,255,255,.12);
         background: rgba(255,255,255,.04);
         padding: 18px;
-        text-align:left;
       }
       .tile b{
         display:block;
@@ -661,14 +929,11 @@
       <section class="hero">
         <div class="kicker"><span class="dot"></span> Nu på App Store & Google Play</div>
 
-        <h1>
-          iPhone i hånden.<br />
-          Tablet på væggen.
-        </h1>
+        <h1>iPhone i hånden.<br />Tablet på væggen.</h1>
 
         <p class="sub">
-          Det nyeste nye til familier: et roligt dashboard der samler <b>aftaler</b>, <b>madplan</b>,
-          <b>opgaver</b> og <b>indkøb</b> — så hverdagen bare kører.
+          Et roligt dashboard der samler <b>aftaler</b>, <b>madplan</b>, <b>opgaver</b> og <b>indkøb</b>.
+          Det føles som fremtiden — fordi det endelig giver mening i en travl familie.
         </p>
 
         <div class="cta" id="download">
@@ -676,183 +941,358 @@
           <a class="btn ghost" id="playstore" href="#" target="_blank" rel="noopener">Google Play</a>
         </div>
 
-        <div class="micro">
-          All-in-one. Best-in-market. Én hub — alle forstår.
-        </div>
+        <div class="micro">All-in-one. Best-in-market. Én hub — alle forstår.</div>
 
-        <div class="deviceStage" aria-label="Device previews">
+        <div class="stage">
           <div class="devices">
-            <!-- iPhone upright -->
-            <div>
-              <div class="shell phoneShell">
-                <div class="notch" aria-hidden="true"></div>
-                <div class="phoneScreen">
-                  <div class="phoneInner">
-                    <div class="miniTop">
-                      <span>Tirsdag · 16:36</span>
-                      <span style="display:flex; gap:8px;">
-                        <span class="miniChip">Hjælp</span>
-                        <span class="miniChip">Indstillinger</span>
-                      </span>
-                    </div>
 
-                    <div class="miniGrid">
-                      <div class="miniCard">
-                        <div class="miniTitle">
-                          <span>Aftaler</span>
-                          <span class="miniBadge">0 i dag</span>
-                        </div>
-                        <div class="miniEmpty">Ingen planer — slap af!</div>
-                      </div>
+            <!-- iPhone -->
+            <div class="deviceWrap">
+              <div class="outer phoneOuter" aria-label="iPhone preview">
+                <div class="phoneButtons">
+                  <div class="btnSide b1"></div>
+                  <div class="btnSide b2"></div>
+                  <div class="btnSide b3"></div>
+                  <div class="btnSide power"></div>
+                </div>
 
-                      <div class="miniCard">
-                        <div class="miniTitle">
-                          <span>Madplan</span>
-                          <span class="miniBadge" style="border-color:rgba(249,115,22,.28); background:rgba(249,115,22,.10); color:rgba(254,215,170,.95);">
-                            I aften
-                          </span>
-                        </div>
-                        <div class="miniMeal">
-                          Hakkebøf med bløde løg, skysovs og kogte kartofler
-                        </div>
-                      </div>
+                <div class="phoneBezel">
+                  <div class="notch" aria-hidden="true">
+                    <div class="speaker"></div>
+                    <div class="cam"></div>
+                  </div>
 
-                      <div class="miniCard">
-                        <div class="miniTitle">
-                          <span>Apps</span>
-                          <span class="miniBadge" style="border-color:rgba(34,197,94,.25); background:rgba(34,197,94,.10); color:rgba(187,247,208,.92);">
-                            Hurtigt
-                          </span>
-                        </div>
-                        <div class="miniRow">
-                          <div class="miniApp"><span>📅</span><b>Kalender</b></div>
-                          <div class="miniApp"><span>🍽️</span><b>Madplan</b></div>
-                          <div class="miniApp"><span>✅</span><b>Opgaver</b></div>
-                          <div class="miniApp"><span>🛒</span><b>Indkøb</b></div>
-                        </div>
+                  <div class="phoneScreen">
+                    <div class="statusbar" aria-hidden="true">
+                      <span>16:36</span>
+                      <div class="sbRight">
+                        <span class="sig"><i></i><i></i><i></i><i></i></span>
+                        <div class="battery"><b></b></div>
                       </div>
                     </div>
 
-                    <div class="captionRow" style="margin-top:14px;">
-                      <span>iPhone</span>
-                      <span class="pill">På farten</span>
+                    <div class="phoneInner">
+                      <div class="glass phoneHeader">
+                        <div class="date">Tirsdag · 20. januar</div>
+                        <div class="row" style="margin-top:10px;">
+                          <div class="clock">16:36</div>
+                          <div style="display:flex; gap:8px;">
+                            <span class="chip">Hjælp</span>
+                            <span class="chip">Indstillinger</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="gridPhone">
+
+                        <!-- Aftaler -->
+                        <div class="glass card">
+                          <div class="row">
+                            <div class="row" style="gap:10px; justify-content:flex-start;">
+                              <span class="iconPill" title="Kalender">📅</span>
+                              <div style="text-align:left;">
+                                <div class="title">Aftaler</div>
+                                <div class="tiny">Næste i dag</div>
+                              </div>
+                            </div>
+                            <span class="badge">3 i dag</span>
+                          </div>
+
+                          <div class="eventList">
+                            <div class="event">
+                              <div class="dateBox"><small>Tir</small><b>20</b></div>
+                              <div class="eventTxt">
+                                <b>Fodboldtræning</b>
+                                <span>17:00 · Ude</span>
+                              </div>
+                              <div class="pillCount">1</div>
+                            </div>
+
+                            <div class="event">
+                              <div class="dateBox"><small>Tir</small><b>20</b></div>
+                              <div class="eventTxt">
+                                <b>Indkøb + aftensmad</b>
+                                <span>18:30 · Hjemme</span>
+                              </div>
+                              <div class="pillCount">3</div>
+                            </div>
+
+                            <div class="event">
+                              <div class="dateBox"><small>Tir</small><b>20</b></div>
+                              <div class="eventTxt">
+                                <b>Madpakker klar</b>
+                                <span>20:30 · Done</span>
+                              </div>
+                              <div class="pillCount done">✓</div>
+                            </div>
+                          </div>
+
+                          <div class="hint">Åbn kalender →</div>
+                        </div>
+
+                        <!-- Madplan -->
+                        <div class="glass card">
+                          <div class="row">
+                            <div class="row" style="gap:10px; justify-content:flex-start;">
+                              <span class="iconPill">🍽️</span>
+                              <div style="text-align:left;">
+                                <div class="title">Madplan</div>
+                                <div class="tiny">I aften</div>
+                              </div>
+                            </div>
+                            <span class="badge orange">klar</span>
+                          </div>
+
+                          <div class="mealLine">Hakkebøf · bløde løg · skysovs · kartofler</div>
+                          <div class="hint">Tilføj til indkøb →</div>
+                        </div>
+
+                        <!-- Apps -->
+                        <div class="glass card">
+                          <div class="row">
+                            <div class="row" style="gap:10px; justify-content:flex-start;">
+                              <span class="iconPill">✨</span>
+                              <div style="text-align:left;">
+                                <div class="title">Apps & værktøjer</div>
+                                <div class="tiny">Alt samlet</div>
+                              </div>
+                            </div>
+                            <span class="badge">hurtig</span>
+                          </div>
+
+                          <div class="appsGridPhone">
+                            <div class="appTileMini">
+                              <div class="appIcon bg-blue">📅</div>
+                              <div class="appLabel">Kalender</div>
+                            </div>
+                            <div class="appTileMini">
+                              <div class="appIcon bg-orange">🍽️</div>
+                              <div class="appLabel">Madplan</div>
+                            </div>
+                            <div class="appTileMini">
+                              <div class="appIcon bg-green">✅</div>
+                              <div class="appLabel">Opgaver</div>
+                            </div>
+                            <div class="appTileMini">
+                              <div class="appIcon bg-emerald">🛒</div>
+                              <div class="appLabel">Indkøb</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Opgaver -->
+                        <div class="glass card">
+                          <div class="row">
+                            <div class="row" style="gap:10px; justify-content:flex-start;">
+                              <span class="iconPill">✅</span>
+                              <div style="text-align:left;">
+                                <div class="title">Opgaver</div>
+                                <div class="tiny">Fordelt på familien</div>
+                              </div>
+                            </div>
+                            <span class="badge green">68%</span>
+                          </div>
+
+                          <div class="avatars">
+                            <div class="av">K</div>
+                            <div class="av">S</div>
+                            <div class="av">M</div>
+                            <div class="av" style="opacity:.7;">+</div>
+                          </div>
+                          <div class="bar"><i></i></div>
+                          <div class="hint">Se opgaver →</div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="homeIndicator" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="deviceCaption">
+                <span>iPhone</span>
+                <span class="pill">Portrait</span>
+                <span class="pill">På farten</span>
+              </div>
+            </div>
+
+            <!-- Tablet -->
+            <div class="deviceWrap">
+              <div class="wallShadow" aria-hidden="true"></div>
+              <div class="outer tabletOuter" aria-label="Tablet wall preview">
+                <div class="tabletButtons">
+                  <div class="btnSide vol1"></div>
+                  <div class="btnSide vol2"></div>
+                  <div class="btnSide power"></div>
+                </div>
+
+                <div class="tabletBezel">
+                  <div class="tabletCam" aria-hidden="true"></div>
+                  <div class="grill left" aria-hidden="true"></div>
+                  <div class="grill right" aria-hidden="true"></div>
+
+                  <div class="tabletScreen">
+                    <div class="tabletInner">
+                      <div class="tabletTop">
+                        <div class="tabletMeta">
+                          <span>Tirsdag · 20. januar · 16:36</span>
+                          <span style="opacity:.6;">Wall Mode — altid synlig i hjemmet</span>
+                        </div>
+                        <div class="tabletActions">
+                          <div class="tBtn">Hjælp</div>
+                          <div class="tBtn">Indstillinger</div>
+                        </div>
+                      </div>
+
+                      <div class="tabletGrid">
+                        <!-- Left big: calendar -->
+                        <div class="glass card bigCard">
+                          <div class="row">
+                            <div class="row" style="gap:10px; justify-content:flex-start;">
+                              <span class="iconPill bg-blue" style="background:rgba(59,130,246,.20); color:#fff;">📅</span>
+                              <div style="text-align:left;">
+                                <div class="title">Aftaler</div>
+                                <div class="tiny">Hurtigt overblik</div>
+                              </div>
+                            </div>
+                            <span class="badge">3 i dag</span>
+                          </div>
+
+                          <div class="eventList" style="margin-top:14px;">
+                            <div class="event">
+                              <div class="dateBox"><small>Tir</small><b>20</b></div>
+                              <div class="eventTxt">
+                                <b>Fodboldtræning</b>
+                                <span>17:00 · Ude</span>
+                              </div>
+                              <div class="pillCount">1</div>
+                            </div>
+
+                            <div class="event">
+                              <div class="dateBox"><small>Tir</small><b>20</b></div>
+                              <div class="eventTxt">
+                                <b>Forældremøde</b>
+                                <span>19:30 · Skolen</span>
+                              </div>
+                              <div class="pillCount">2</div>
+                            </div>
+
+                            <div class="event">
+                              <div class="dateBox"><small>Tir</small><b>20</b></div>
+                              <div class="eventTxt">
+                                <b>Madpakker klar</b>
+                                <span>20:30 · Done</span>
+                              </div>
+                              <div class="pillCount done">✓</div>
+                            </div>
+                          </div>
+
+                          <div class="hint">Tryk for fuld kalender →</div>
+                        </div>
+
+                        <!-- Right stack -->
+                        <div class="stack">
+                          <div class="glass card sideCard">
+                            <div class="row">
+                              <div class="row" style="gap:10px; justify-content:flex-start;">
+                                <span class="iconPill" title="Madplan">🍽️</span>
+                                <div style="text-align:left;">
+                                  <div class="title">Madplan</div>
+                                  <div class="tiny">I aften</div>
+                                </div>
+                              </div>
+                              <span class="badge orange">klar</span>
+                            </div>
+                            <div class="mealLine" style="font-size:15px;">
+                              Hakkebøf · bløde løg · skysovs · kartofler
+                            </div>
+                            <div class="hint">Indkøbsliste klar →</div>
+                          </div>
+
+                          <div class="glass card sideCard">
+                            <div class="row">
+                              <div class="row" style="gap:10px; justify-content:flex-start;">
+                                <span class="iconPill">✅</span>
+                                <div style="text-align:left;">
+                                  <div class="title">Opgaver</div>
+                                  <div class="tiny">Status nu</div>
+                                </div>
+                              </div>
+                              <span class="badge green">8 tilbage</span>
+                            </div>
+
+                            <div class="avatars">
+                              <div class="av">K</div><div class="av">S</div><div class="av">M</div><div class="av">A</div>
+                            </div>
+                            <div class="bar"><i style="width:62%"></i></div>
+                            <div class="hint">Åbn opgaver →</div>
+                          </div>
+
+                          <div class="glass card appsPanel">
+                            <div class="row">
+                              <div class="row" style="gap:10px; justify-content:flex-start;">
+                                <span class="iconPill">✨</span>
+                                <div style="text-align:left;">
+                                  <div class="title">Apps & værktøjer</div>
+                                  <div class="tiny">Alt samlet</div>
+                                </div>
+                              </div>
+                              <span class="badge">hurtig</span>
+                            </div>
+
+                            <div class="appsGridWall">
+                              <div class="appWall">
+                                <div class="appIcon bg-blue">📅</div>
+                                <div class="appLabel">Kalender</div>
+                              </div>
+                              <div class="appWall">
+                                <div class="appIcon bg-orange">🍽️</div>
+                                <div class="appLabel">Madplan</div>
+                              </div>
+                              <div class="appWall">
+                                <div class="appIcon bg-green">✅</div>
+                                <div class="appLabel">Opgaver</div>
+                              </div>
+                              <div class="appWall">
+                                <div class="appIcon bg-emerald">🛒</div>
+                                <div class="appLabel">Indkøb</div>
+                              </div>
+
+                              <div class="appWall">
+                                <div class="appIcon bg-rose">🎓</div>
+                                <div class="appLabel">Skole</div>
+                              </div>
+                              <div class="appWall">
+                                <div class="appIcon bg-amber">⭐</div>
+                                <div class="appLabel">Ønsker</div>
+                              </div>
+                              <div class="appWall">
+                                <div class="appIcon bg-indigo">⚡</div>
+                                <div class="appLabel">Aktivitet</div>
+                              </div>
+                              <div class="appWall">
+                                <div class="appIcon bg-purple">📖</div>
+                                <div class="appLabel">Historie</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Tablet landscape -->
-            <div>
-              <div class="shell tabletShell">
-                <div class="mount" aria-hidden="true"></div>
+              <div class="bracket" aria-hidden="true"></div>
 
-                <div class="tabletScreen">
-                  <div class="tabletInner">
-                    <div class="wallTop">
-                      <div class="wallMeta">
-                        <span>Tirsdag · 16:36</span>
-                        <span style="opacity:.6;">Wall Mode (altid synlig)</span>
-                      </div>
-                      <div class="wallActions">
-                        <div class="wallBtn">Hjælp</div>
-                        <div class="wallBtn">Indstillinger</div>
-                      </div>
-                    </div>
-
-                    <div class="wallGrid">
-                      <div class="wallCard big">
-                        <div class="wallHead">
-                          <b>Aftaler</b>
-                          <span class="count">2 i dag</span>
-                        </div>
-
-                        <div class="wallList">
-                          <div class="wallItem">
-                            <div class="dateBox">
-                              <small>Tir</small>
-                              <b>20</b>
-                            </div>
-                            <div class="wallTxt">
-                              <b>Fodboldtræning</b>
-                              <span>17:00 · Ude</span>
-                            </div>
-                          </div>
-
-                          <div class="wallItem">
-                            <div class="dateBox">
-                              <small>Tir</small>
-                              <b>20</b>
-                            </div>
-                            <div class="wallTxt">
-                              <b>Indkøb + aftensmad</b>
-                              <span>18:30 · Hjemme</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="wallCard">
-                        <div class="wallHead">
-                          <b>Madplan</b>
-                          <span class="count" style="border-color:rgba(249,115,22,.22); background:rgba(249,115,22,.10); color:rgba(254,215,170,.92);">
-                            I aften
-                          </span>
-                        </div>
-
-                        <div style="margin-top:12px; font-weight:950; letter-spacing:-.02em; line-height:1.2;">
-                          Hakkebøf med bløde løg<br />
-                          skysovs & kartofler
-                        </div>
-
-                        <div style="margin-top:14px; color:rgba(246,247,255,.55); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase;">
-                          Klar til indkøbsliste →
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="wallCard" style="margin-top:12px;">
-                      <div class="wallHead">
-                        <b>Apps & værktøjer</b>
-                        <span class="count" style="border-color:rgba(34,197,94,.20); background:rgba(34,197,94,.10); color:rgba(187,247,208,.92);">
-                          Alt samlet
-                        </span>
-                      </div>
-
-                      <div class="appsGrid">
-                        <div class="appTile">
-                          <div class="appIcon">✅</div>
-                          <div>
-                            <b>Opgaver</b>
-                            <span>fordel og følg med</span>
-                          </div>
-                        </div>
-
-                        <div class="appTile">
-                          <div class="appIcon">🛒</div>
-                          <div>
-                            <b>Indkøb</b>
-                            <span>klar på få sekunder</span>
-                          </div>
-                        </div>
-
-                        <div class="appTile">
-                          <div class="appIcon">🎓</div>
-                          <div>
-                            <b>Skole</b>
-                            <span>intet bliver glemt</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="captionRow" style="margin-top:14px;">
-                      <span>Tablet (landscape)</span>
-                      <span class="pill">På væggen</span>
-                      <span class="pill">Altid synlig</span>
-                    </div>
-                  </div>
-                </div>
+              <div class="deviceCaption">
+                <span>Tablet</span>
+                <span class="pill">Landscape</span>
+                <span class="pill">Wall Mount</span>
+                <span class="pill">Altid synlig</span>
               </div>
             </div>
 
@@ -864,22 +1304,22 @@
         <h2 class="h2">Hvorfor det føles som fremtiden</h2>
         <p class="lead">
           Det er ikke de store ting der dræner — det er mikro-koordinationen.
-          Family Hub på Plurima gør det usynlige arbejde synligt, så alle ved hvad der sker,
-          og hverdagen kører uden at nogen skal “holde sammen på det hele”.
+          Family Hub på Plurima gør det usynlige arbejde synligt: alle ved hvad der sker, hvad vi spiser,
+          og hvem der gør hvad. Mindre koordinering. Mere ro. Mere tid sammen.
         </p>
 
         <div class="tiles">
           <div class="tile">
             <b>Mindre mental load</b>
-            <p>Et fælles overblik i hjemmet — og i lommen. Ro i hovedet.</p>
+            <p>Overblikket er synligt for alle — både på væggen og i lommen.</p>
           </div>
           <div class="tile">
             <b>Færre afbrydelser</b>
-            <p>Planer, mad og opgaver ét sted. Mindre “husk lige…”.</p>
+            <p>Planer, opgaver og madplan ét sted. Mindre “husk lige…”.</p>
           </div>
           <div class="tile">
             <b>Mere nærvær</b>
-            <p>Når logistikken kører, får I tid til det der betyder noget.</p>
+            <p>Når logistikken kører, frigiver I tid til det der betyder noget.</p>
           </div>
         </div>
       </section>
@@ -891,7 +1331,7 @@
     </div>
 
     <script>
-      // Sæt dine rigtige links ind her:
+      // Indsæt dine rigtige links her:
       const APP_STORE_URL = "#";
       const GOOGLE_PLAY_URL = "#";
 
@@ -902,4 +1342,3 @@
     </script>
   </body>
 </html>
-

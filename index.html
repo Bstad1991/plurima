@@ -4,29 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Family Hub på Plurima</title>
-  <meta name="description" content="Family Hub på Plurima — iPhone i hånden. Tablet på væggen. Den nye standard for familielogistik." />
-
-  <!-- CSSDevices -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cssdevices@2.2.1/devices.min.css" />
+  <meta name="description" content="Family Hub på Plurima — kalender, madplan, opgaver og indkøb. På telefonen og på væggen." />
 
   <style>
     :root{
-      --bg0:#07080c;
-      --bg1:#0a0c14;
-      --text:#f7f8ff;
-      --muted:rgba(247,248,255,.68);
-      --hair:rgba(255,255,255,.10);
-      --shadow: 0 40px 120px rgba(0,0,0,.55);
+      --bg0:#050610;
+      --bg1:#070814;
+      --text:#fbfbff;
+      --muted:rgba(251,251,255,.72);
+      --hair:rgba(255,255,255,.12);
 
-      --blue:#3b82f6;
-      --orange:#f97316;
-      --green:#22c55e;
-      --emerald:#10b981;
+      --glass:rgba(255,255,255,.06);
+      --glass2:rgba(255,255,255,.10);
+
+      --shadow: 0 40px 120px rgba(0,0,0,.55);
+      --shadow2: 0 24px 70px rgba(0,0,0,.45);
+
+      --blue:#5aa7ff;
+      --violet:#8b5cff;
+      --mint:#34d399;
+      --amber:#fbbf24;
       --rose:#fb7185;
-      --amber:#f59e0b;
-      --indigo:#6366f1;
       --purple:#a855f7;
+
+      --pearlA: rgba(120,140,255,.26);
+      --pearlB: rgba(255,140,200,.16);
+      --pearlC: rgba(120,255,210,.12);
+
+      --r: 34px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -34,249 +41,468 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
-        radial-gradient(1200px 700px at 18% 12%, rgba(99,102,241,.22), transparent 60%),
-        radial-gradient(900px 700px at 82% 18%, rgba(59,130,246,.18), transparent 60%),
-        radial-gradient(1100px 800px at 55% 95%, rgba(249,115,22,.12), transparent 60%),
+        radial-gradient(1100px 720px at 18% 10%, var(--pearlA), transparent 62%),
+        radial-gradient(920px 650px at 82% 16%, var(--pearlB), transparent 62%),
+        radial-gradient(980px 820px at 55% 92%, var(--pearlC), transparent 60%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
 
-    .wrap{max-width:1200px; margin:0 auto; padding:26px 18px 84px;}
-    .top{display:flex; justify-content:space-between; align-items:center; gap:14px;}
-    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:22px 18px 88px;}
+
+    /* Top bar */
+    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0;}
     .mark{
       width:42px;height:42px;border-radius:14px;border:1px solid var(--hair);
-      background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      background:
+        radial-gradient(120% 120% at 20% 20%, rgba(255,255,255,.18), rgba(255,255,255,.06) 60%, rgba(255,255,255,.03)),
+        linear-gradient(135deg, rgba(120,140,255,.25), rgba(255,140,200,.10));
       box-shadow:0 14px 40px rgba(0,0,0,.35);
-      display:grid;place-items:center;font-weight:900;letter-spacing:-.04em;
+      display:grid;place-items:center;font-weight:950;letter-spacing:-.06em;
     }
-    .name{font-weight:900;letter-spacing:-.03em;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-    .pill{
-      font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
-      color:rgba(247,248,255,.75);
+    .name{font-weight:950;letter-spacing:-.03em;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+    .navPill{
+      font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;
       padding:10px 12px;border-radius:999px;border:1px solid transparent;
+      color:rgba(251,251,255,.78);
       transition:all .2s ease;
     }
-    .pill:hover{border-color:var(--hair); background:rgba(255,255,255,.04);}
-    .pill.primary{
-      background:rgba(247,248,255,.92); color:#07080c;
+    .navPill:hover{border-color:var(--hair);background:rgba(255,255,255,.04);}
+    .navPill.primary{
+      background:rgba(251,251,255,.92);
+      color:#080914;border-color:rgba(251,251,255,.92);
       box-shadow:0 22px 70px rgba(0,0,0,.45);
     }
 
-    .hero{margin-top:56px;}
+    /* Hero */
+    .hero{margin-top:62px;}
     .kicker{
       display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:999px;border:1px solid var(--hair);
+      padding:10px 14px;border-radius:999px;
+      border:1px solid var(--hair);
       background:rgba(255,255,255,.04);
-      color:rgba(247,248,255,.80);
-      font-size:12px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;
+      font-size:12px;font-weight:950;letter-spacing:.10em;text-transform:uppercase;
+      color:rgba(251,251,255,.82);
+      width:fit-content;
     }
-    .dot{width:8px;height:8px;border-radius:99px;background:rgba(34,197,94,.92);box-shadow:0 0 0 6px rgba(34,197,94,.18);}
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:rgba(52,211,153,.95);
+      box-shadow:0 0 0 7px rgba(52,211,153,.16);
+    }
     h1{
-      margin:16px 0 0;
-      font-size:clamp(40px, 5.2vw, 72px);
-      line-height:1.02; letter-spacing:-0.06em; font-weight:950;
+      margin:14px 0 0;
+      font-size:clamp(40px, 5.5vw, 76px);
+      line-height:1.00;
+      letter-spacing:-0.07em;
+      font-weight:980;
     }
-    .sub{margin-top:14px; max-width:820px; font-size:18px; line-height:1.7; color:var(--muted);}
+    .sub{
+      margin:12px 0 0;
+      max-width:900px;
+      font-size:18px;
+      line-height:1.75;
+      color:var(--muted);
+    }
+    .ctas{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:14px 16px;border-radius:999px;
+      border:1px solid var(--hair);
+      background:rgba(255,255,255,.04);
+      color:rgba(251,251,255,.88);
+      font-weight:950;letter-spacing:.12em;text-transform:uppercase;font-size:12px;
+      transition:transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{
+      background:rgba(251,251,255,.92);
+      color:#080914;border-color:rgba(251,251,255,.92);
+      box-shadow:var(--shadow2);
+    }
+    .mini{
+      display:flex;align-items:center;gap:10px;
+      color:rgba(251,251,255,.62);
+      font-size:12px;font-weight:900;
+    }
+    .spark{
+      width:10px;height:10px;border-radius:99px;
+      background:rgba(139,92,255,.95);
+      box-shadow:0 0 0 8px rgba(139,92,255,.16);
+    }
 
-    /* Stage: prevents stretching */
+    /* Stage (no stretching) */
     .stage{
       margin-top:34px;
-      border-radius:34px;
-      border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
+      border-radius:42px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
       overflow:hidden;
       position:relative;
     }
-    .stageInner{
-      padding: 22px 18px 18px;
-      height: clamp(520px, 62vh, 690px);
+    .stage::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(800px 420px at 18% 18%, rgba(120,140,255,.16), transparent 60%),
+        radial-gradient(900px 520px at 82% 28%, rgba(255,140,200,.11), transparent 60%),
+        radial-gradient(900px 620px at 55% 110%, rgba(120,255,210,.08), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
     }
-    @media (max-width: 980px){
-      .stageInner{ height:auto; padding: 18px 14px 12px; }
+    .stageInner{
+      position:relative;
+      padding:24px 18px 18px;
+      min-height: clamp(520px, 62vh, 720px);
+      display:grid;
+      align-items:center;
     }
 
+    /* Device layout */
     .devices{
-      height: 100%;
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.85fr 1.15fr;
       gap: 26px;
       align-items:center;
       justify-items:center;
     }
     @media (max-width: 980px){
-      .devices{grid-template-columns:1fr; gap: 30px;}
+      .stageInner{min-height:auto;padding:18px 14px 14px;}
+      .devices{grid-template-columns:1fr;gap:26px;}
     }
 
-    /* Wall mount shadow behind tablet */
+    /* ===== Custom Device Frames (reliable) ===== */
+    .device{
+      position:relative;
+      border-radius: calc(var(--r) + 10px);
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 30px 90px rgba(0,0,0,.48);
+      padding: 12px;
+    }
+    .device::after{
+      content:"";
+      position:absolute; inset:0;
+      border-radius: inherit;
+      pointer-events:none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.20);
+      opacity:.9;
+    }
+
+    /* Phone */
+    .phone{
+      width: clamp(240px, 22vw, 320px);
+      aspect-ratio: 9 / 19.5;
+      border-radius: 42px;
+      padding: 12px;
+    }
+    .phone .bezel{
+      position:absolute; inset:10px;
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(0,0,0,.40), rgba(0,0,0,.62));
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .phone .hardware{
+      position:absolute; inset:0; pointer-events:none;
+    }
+    .phone .notch{
+      position:absolute;
+      top: 18px; left:50%;
+      transform: translateX(-50%);
+      width: 44%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+    }
+    .phone .cam{
+      position:absolute;
+      top: 22px; left: calc(50% - 44px);
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), rgba(0,0,0,.9));
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .phone .speaker{
+      position:absolute;
+      top: 24px; left: calc(50% - 10px);
+      width: 44px; height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+    }
+    .phone .btnSide{
+      position:absolute;
+      left:-3px; top: 22%;
+      width: 3px; height: 62px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.18);
+      opacity:.55;
+    }
+    .phone .btnSide2{
+      position:absolute;
+      left:-3px; top: 34%;
+      width: 3px; height: 46px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      opacity:.45;
+    }
+
+    /* Tablet (landscape) */
     .tabletMount{
       position:relative;
-      width: 100%;
-      max-width: 720px;
+      width: min(860px, 100%);
       display:grid;
       place-items:center;
+      padding: 10px 0;
     }
     .tabletMount::before{
       content:"";
       position:absolute;
-      width: 680px;
+      width: min(780px, 96%);
       height: 420px;
-      border-radius: 56px;
+      border-radius: 70px;
       background: radial-gradient(closest-side, rgba(0,0,0,.55), rgba(0,0,0,0));
-      filter: blur(14px);
-      transform: translate(22px, 30px);
-      opacity: .9;
+      filter: blur(16px);
+      transform: translate(28px, 30px);
+      opacity: .85;
       pointer-events:none;
     }
-    @media (max-width: 980px){
-      .tabletMount::before{display:none;}
-    }
+    @media (max-width: 980px){ .tabletMount::before{display:none;} }
 
-    /* Ensure screens behave */
-    .cd-screen{
+    .tablet{
+      width: clamp(520px, 54vw, 820px);
+      aspect-ratio: 4 / 3; /* iPad-ish */
+      border-radius: 54px;
+      padding: 12px;
+    }
+    .tablet .bezel{
+      position:absolute; inset:10px;
+      border-radius: 44px;
+      background: linear-gradient(180deg, rgba(0,0,0,.36), rgba(0,0,0,.62));
+      border: 1px solid rgba(255,255,255,.10);
       overflow:hidden;
-      border-radius: 10px;
-      background:#0b0c10;
+    }
+    .tablet .hardware{
+      position:absolute; inset:0; pointer-events:none;
+    }
+    .tablet .cam{
+      position:absolute;
+      left: 22px; top:50%;
+      transform: translateY(-50%);
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), rgba(0,0,0,.9));
+      border: 1px solid rgba(255,255,255,.12);
+      opacity:.95;
+    }
+    .tablet .btnTop{
+      position:absolute;
+      top:-3px; right: 20%;
+      width: 64px; height: 3px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      opacity:.45;
     }
 
-    /* ===== UI inside devices ===== */
-    .ui{
-      height:100%; width:100%;
-      background:
-        radial-gradient(520px 260px at 20% 10%, rgba(99,102,241,.18), transparent 60%),
-        radial-gradient(520px 260px at 80% 20%, rgba(59,130,246,.14), transparent 60%),
-        linear-gradient(180deg, #0a0c14, #0b0c10);
+    /* Screen content container */
+    .screen{
+      position:absolute;
+      inset: 0;
       display:flex;
       flex-direction:column;
       padding: 14px;
       gap: 12px;
+      background:
+        radial-gradient(520px 260px at 18% 10%, rgba(120,140,255,.22), transparent 62%),
+        radial-gradient(520px 260px at 84% 16%, rgba(255,140,200,.14), transparent 62%),
+        linear-gradient(180deg, #070816, #050610);
     }
-    .uiTop{
-      display:flex; justify-content:space-between; align-items:center; gap:10px;
-      padding:10px 10px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
+
+    /* UI blocks */
+    .topBar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding: 10px 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(10px);
     }
-    .uiDate{display:flex;flex-direction:column;gap:4px;min-width:0;}
-    .uiDate b{
-      font-size:10px; letter-spacing:.18em; text-transform:uppercase; opacity:.85;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    .dateBoxUI{display:flex;flex-direction:column;gap:4px;min-width:0;}
+    .dateBoxUI b{
+      font-size:10px;font-weight:950;
+      letter-spacing:.18em;text-transform:uppercase;
+      opacity:.86;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .uiDate span{
-      font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.55;
+    .dateBoxUI span{
+      font-size:10px;font-weight:900;
+      letter-spacing:.16em;text-transform:uppercase;
+      opacity:.56;
     }
-    .uiActions{display:flex; gap:8px; flex-shrink:0;}
+    .chips{display:flex;gap:8px;flex-shrink:0;}
     .chip{
       padding:9px 10px;border-radius:999px;
-      font-size:10px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.05);
+      font-size:10px;font-weight:950;
+      letter-spacing:.14em;text-transform:uppercase;
+      opacity:.92;
       white-space:nowrap;
     }
 
-    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap: 10px; flex:1; min-height:0;}
-    .card{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      padding:12px;
-      display:flex; flex-direction:column; gap: 10px; min-height:0;
+    .gridPhone{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 10px;
+      flex: 1;
+      min-height:0;
     }
-    .cardHead{display:flex;justify-content:space-between;align-items:center;gap:10px;}
-    .cardHead b{font-size:12px;font-weight:950;letter-spacing:-.02em;}
+    .gridTablet{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 10px;
+      flex: 1;
+      min-height:0;
+    }
+
+    .card{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(12px);
+      padding: 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      min-height:0;
+    }
+    .cardHead{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+    .cardHead b{font-size:12px;font-weight:950;letter-spacing:-.02em;opacity:.95;}
     .badge{
       font-size:9px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;
       padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.05);
-      opacity:.9;
+      opacity:.85;
       white-space:nowrap;
     }
 
     .event{
-      display:flex; gap:10px; align-items:center;
-      padding:10px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
+      display:flex;align-items:center;gap:10px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 10px;
     }
-    .dateBox{
-      width:42px;height:42px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.06);
+    .calMini{
+      width: 42px;height:42px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
       display:flex;flex-direction:column;align-items:center;justify-content:center;
       flex-shrink:0;
     }
-    .dateBox small{font-size:8px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;opacity:.60;line-height:1;}
-    .dateBox span{font-size:16px;font-weight:950;letter-spacing:-.03em;line-height:1.1;}
-    .eventTxt{min-width:0; flex:1;}
-    .eventTxt b{
+    .calMini small{
+      font-size:8px;font-weight:950;
+      letter-spacing:.18em;text-transform:uppercase;
+      opacity:.55;line-height:1;
+    }
+    .calMini span{
+      font-size:16px;font-weight:950;letter-spacing:-.03em;line-height:1.1;
+    }
+    .evtTxt{min-width:0;flex:1;}
+    .evtTxt b{
       display:block;font-size:12px;font-weight:950;letter-spacing:-.01em;
       white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .eventTxt small{
+    .evtTxt small{
       display:flex;align-items:center;gap:6px;
-      font-size:10px;opacity:.60;letter-spacing:.10em;text-transform:uppercase;font-weight:900;margin-top:4px;
+      font-size:10px;font-weight:900;
+      letter-spacing:.12em;text-transform:uppercase;
+      opacity:.55;margin-top:4px;
     }
-    .pillDot{width:7px;height:7px;border-radius:99px;background:rgba(59,130,246,.95);box-shadow:0 0 0 6px rgba(59,130,246,.16);}
+    .dot2{
+      width:7px;height:7px;border-radius:999px;
+      background: rgba(90,167,255,.95);
+      box-shadow: 0 0 0 7px rgba(90,167,255,.16);
+    }
 
-    .mealBig{
-      flex:1; display:flex; flex-direction:column; justify-content:center; gap:8px;
-      padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
+    .meal{
+      flex:1;
+      display:flex;flex-direction:column;justify-content:center;gap:8px;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
       min-height:0;
     }
-    .mealBig small{
+    .meal small{
       font-size:9px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;
-      color:rgba(249,115,22,.95);
+      color: rgba(251,191,36,.95);
     }
-    .mealBig b{font-size:16px;font-weight:950;letter-spacing:-.02em;line-height:1.15;}
+    .meal b{
+      font-size:16px;font-weight:950;letter-spacing:-.02em;line-height:1.15;
+    }
 
-    .apps{display:grid; grid-template-columns: repeat(2, 1fr); gap: 8px;}
+    .apps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .apps.two{grid-template-columns: repeat(2, 1fr); gap:10px;}
     .app{
-      border-radius:16px;border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      padding:10px 8px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 10px 8px;
       display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
     }
-    .tileIcon{
-      width:34px;height:34px;border-radius:14px;display:grid;place-items:center;color:white;font-weight:950;
-      box-shadow:0 10px 30px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);
+    .icon{
+      width: 34px;height:34px;border-radius: 14px;
+      display:grid;place-items:center;
+      color:white;font-weight:950;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
     }
-    .app b{font-size:8px;letter-spacing:.18em;text-transform:uppercase;opacity:.70;text-align:center;line-height:1.2;font-weight:950;}
+    .app b{
+      font-size:8px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;
+      opacity:.70;text-align:center;line-height:1.2;
+    }
 
-    /* Tablet UI density */
-    .uiTablet{padding:14px; gap:12px;}
-    .tabletGrid{
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 10px;
-      flex:1;
-      min-height:0;
+    .rightColNote{
+      margin-top:auto;
+      padding-top:10px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:rgba(251,251,255,.62);
+      font-size:11px;
+      line-height:1.7;
     }
-    .leftCol{display:grid; grid-template-columns: 1fr 1fr; gap:10px; min-height:0;}
-    .span2{grid-column: 1 / -1;}
-    .rightCol{
-      border-radius:18px;border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      padding:12px; display:flex; flex-direction:column; gap:10px; min-height:0;
+    .caption{
+      margin-top: 14px;
+      text-align:center;
+      color: rgba(251,251,255,.64);
+      font-size: 13px;
+      line-height: 1.75;
+      max-width: 980px;
+      margin-left:auto;margin-right:auto;
     }
-    .rightCol h3{
-      margin:0; font-size:10px; letter-spacing:.18em; text-transform:uppercase;
-      opacity:.75; font-weight:950; display:flex; align-items:center; gap:8px;
-    }
-    .spark{width:10px;height:10px;border-radius:99px;background:rgba(99,102,241,.9);box-shadow:0 0 0 7px rgba(99,102,241,.16);}
+    .caption strong{color: rgba(251,251,255,.92);}
 
     footer{
       margin-top: 62px;
       padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(247,248,255,.52);
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: rgba(251,251,255,.56);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       display:flex;
       justify-content:space-between;
       gap: 12px;
@@ -287,69 +513,150 @@
 
 <body>
   <div class="wrap">
-    <div class="top">
+    <header class="top">
       <div class="brand">
         <div class="mark">PH</div>
         <div class="name">Family Hub på Plurima</div>
       </div>
       <nav class="nav">
-        <a class="pill" href="#download">Download</a>
-        <a class="pill primary" href="#download">Kom i gang</a>
+        <a class="navPill" href="#download">Download</a>
+        <a class="navPill primary" href="#download">Kom i gang</a>
       </nav>
-    </div>
+    </header>
 
     <section class="hero">
       <div class="kicker"><span class="dot"></span> Nu på App Store & Google Play</div>
-      <h1>Ikke bare en app.<br/>Et nyt dashboard til hjemmet.</h1>
+      <h1>En perle af<br/>familie-apps.</h1>
       <p class="sub">
-        Family Hub på Plurima samler <strong>kalender</strong>, <strong>madplan</strong>, <strong>opgaver</strong> og <strong>indkøb</strong> i ét elegant overblik —
-        på mobilen og på væggen. Stop med at lede. Det her er den, der virker.
+        Kalender, madplan, opgaver og indkøb — samlet i én oplevelse.
+        På telefonen når du er på farten. På væggen når familien er samlet.
       </p>
+
+      <div class="ctas" id="download">
+        <a class="btn primary" id="appstoreBtn" href="#" target="_blank" rel="noopener">App Store</a>
+        <a class="btn" id="playstoreBtn" href="#" target="_blank" rel="noopener">Google Play</a>
+        <div class="mini"><span class="spark"></span> Wall Mode til tablet på væggen</div>
+      </div>
 
       <div class="stage">
         <div class="stageInner">
           <div class="devices">
 
-            <!-- iPhone (use CSSDevices scale helpers instead of transforms) -->
-            <div>
-              <div class="cd-iphone-6 cd-silver cd-center cd-scale-80">
-                <div class="cd-body">
-                  <div class="cd-sound"></div>
-                  <div class="cd-sleep"></div>
-                  <div class="cd-camera"></div>
-                  <div class="cd-ear"></div>
-                  <div class="cd-home"></div>
-                  <div class="cd-screen">
-                    <div class="ui">
-                      <div class="uiTop">
-                        <div class="uiDate">
-                          <b>Tirsdag · 20. januar</b>
-                          <span>16:36</span>
-                        </div>
-                        <div class="uiActions">
-                          <div class="chip">Hjælp</div>
-                          <div class="chip">Indstillinger</div>
+            <!-- iPhone (upright, never rotates, never stretches) -->
+            <div class="device phone">
+              <div class="bezel">
+                <div class="screen">
+                  <div class="topBar">
+                    <div class="dateBoxUI">
+                      <b>Tirsdag · 20. januar</b>
+                      <span>16:36</span>
+                    </div>
+                    <div class="chips">
+                      <div class="chip">Hjælp</div>
+                      <div class="chip">Admin</div>
+                    </div>
+                  </div>
+
+                  <div class="gridPhone">
+                    <div class="card">
+                      <div class="cardHead">
+                        <b>Aftaler</b>
+                        <span class="badge">2 i dag</span>
+                      </div>
+                      <div class="event">
+                        <div class="calMini"><small>tir</small><span>20</span></div>
+                        <div class="evtTxt">
+                          <b>Tandlæge · Alma</b>
+                          <small><span class="dot2"></span> 15:10</small>
                         </div>
                       </div>
+                      <div class="event">
+                        <div class="calMini"><small>tir</small><span>20</span></div>
+                        <div class="evtTxt">
+                          <b>Fodbold</b>
+                          <small><span class="dot2"></span> 17:30</small>
+                        </div>
+                      </div>
+                    </div>
 
-                      <div class="grid2">
-                        <div class="card">
+                    <div class="card">
+                      <div class="cardHead">
+                        <b>Madplan</b>
+                        <span class="badge" style="color:rgba(251,191,36,.92); border-color:rgba(251,191,36,.22); background:rgba(251,191,36,.08);">I aften</span>
+                      </div>
+                      <div class="meal">
+                        <small>I aften</small>
+                        <b>Hakkebøf med bløde løg & skysovs</b>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="cardHead">
+                      <b>Apps</b>
+                      <span class="badge">Alt samlet</span>
+                    </div>
+                    <div class="apps">
+                      <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(90,167,255,.95), rgba(139,92,255,.55));">📅</div><b>Kalender</b></div>
+                      <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(251,191,36,.95), rgba(251,113,133,.55));">🍽️</div><b>Madplan</b></div>
+                      <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(52,211,153,.95), rgba(90,167,255,.55));">✅</div><b>Opgaver</b></div>
+                      <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(52,211,153,.95), rgba(251,191,36,.55));">🛒</div><b>Indkøb</b></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hardware">
+                <div class="btnSide"></div>
+                <div class="btnSide2"></div>
+                <div class="notch"></div>
+                <div class="cam"></div>
+                <div class="speaker"></div>
+              </div>
+            </div>
+
+            <!-- iPad / Tablet (landscape, wall mount shadow, never rotates UI) -->
+            <div class="tabletMount">
+              <div class="device tablet">
+                <div class="bezel">
+                  <div class="screen">
+                    <div class="topBar">
+                      <div class="dateBoxUI">
+                        <b>Wall Mode · Tirsdag</b>
+                        <span>Overblik for hele familien</span>
+                      </div>
+                      <div class="chips">
+                        <div class="chip">Hjælp</div>
+                        <div class="chip">Indstillinger</div>
+                      </div>
+                    </div>
+
+                    <div class="gridTablet">
+                      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0;">
+                        <div class="card" style="grid-column:1 / -1;">
                           <div class="cardHead">
                             <b>Aftaler</b>
-                            <span class="badge">2 i dag</span>
+                            <span class="badge">Næste</span>
                           </div>
                           <div class="event">
-                            <div class="dateBox"><small>tir</small><span>20</span></div>
-                            <div class="eventTxt">
+                            <div class="calMini"><small>tir</small><span>20</span></div>
+                            <div class="evtTxt">
                               <b>Tandlæge · Alma</b>
-                              <small><span class="pillDot"></span> 15:10</small>
+                              <small><span class="dot2" style="background:rgba(52,211,153,.95); box-shadow:0 0 0 7px rgba(52,211,153,.16)"></span> 15:10</small>
                             </div>
                           </div>
                           <div class="event">
-                            <div class="dateBox"><small>tir</small><span>20</span></div>
-                            <div class="eventTxt">
+                            <div class="calMini"><small>tir</small><span>20</span></div>
+                            <div class="evtTxt">
                               <b>Fodbold</b>
-                              <small><span class="pillDot"></span> 17:30</small>
+                              <small><span class="dot2"></span> 17:30</small>
+                            </div>
+                          </div>
+                          <div class="event">
+                            <div class="calMini"><small>ons</small><span>21</span></div>
+                            <div class="evtTxt">
+                              <b>Forældremøde</b>
+                              <small><span class="dot2" style="background:rgba(168,85,247,.95); box-shadow:0 0 0 7px rgba(168,85,247,.16)"></span> 19:00</small>
                             </div>
                           </div>
                         </div>
@@ -357,179 +664,91 @@
                         <div class="card">
                           <div class="cardHead">
                             <b>Madplan</b>
-                            <span class="badge" style="border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.10);">i aften</span>
+                            <span class="badge" style="color:rgba(251,191,36,.92); border-color:rgba(251,191,36,.22); background:rgba(251,191,36,.08);">I aften</span>
                           </div>
-                          <div class="mealBig">
+                          <div class="meal" style="flex:1;">
                             <small>I aften</small>
-                            <b>Hakkebøf med bløde løg, skysovs & kartofler</b>
+                            <b>Hakkebøf, løg, skysovs — klar på 25 min</b>
                           </div>
+                        </div>
 
-                          <div class="cardHead" style="margin-top:2px;">
-                            <b style="font-size:11px; opacity:.92;">Apps</b>
-                            <span class="badge" style="opacity:.75;">one hub</span>
+                        <div class="card">
+                          <div class="cardHead">
+                            <b>Opgaver</b>
+                            <span class="badge" style="color:rgba(52,211,153,.92); border-color:rgba(52,211,153,.22); background:rgba(52,211,153,.08);">3 åbne</span>
                           </div>
-
-                          <div class="apps">
-                            <div class="app"><div class="tileIcon" style="background: var(--blue);">📅</div><b>Kalender</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--orange);">🍽️</div><b>Madplan</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--green);">✅</div><b>Opgaver</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--emerald);">🛒</div><b>Indkøb</b></div>
+                          <div class="event">
+                            <div class="calMini"><small>nu</small><span>•</span></div>
+                            <div class="evtTxt">
+                              <b>Støvsuge køkken</b>
+                              <small><span class="dot2" style="background:rgba(52,211,153,.95); box-shadow:0 0 0 7px rgba(52,211,153,.16)"></span> Tildelt: Far</small>
+                            </div>
+                          </div>
+                          <div class="event">
+                            <div class="calMini"><small>nu</small><span>•</span></div>
+                            <div class="evtTxt">
+                              <b>Tøjvask</b>
+                              <small><span class="dot2" style="background:rgba(251,191,36,.95); box-shadow:0 0 0 7px rgba(251,191,36,.16)"></span> Tildelt: Mor</small>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div><!-- /ui -->
+
+                      <div class="card" style="min-height:0;">
+                        <div class="cardHead">
+                          <b>Apps & værktøjer</b>
+                          <span class="badge">Hub</span>
+                        </div>
+
+                        <div class="apps two">
+                          <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(90,167,255,.95), rgba(139,92,255,.55));">📅</div><b>Kalender</b></div>
+                          <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(251,191,36,.95), rgba(251,113,133,.55));">🍽️</div><b>Madplan</b></div>
+                          <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(52,211,153,.95), rgba(90,167,255,.55));">✅</div><b>Opgaver</b></div>
+                          <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(52,211,153,.95), rgba(251,191,36,.55));">🛒</div><b>Indkøb</b></div>
+                          <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(251,113,133,.95), rgba(168,85,247,.55));">🎒</div><b>Skole</b></div>
+                          <div class="app"><div class="icon" style="background:linear-gradient(135deg, rgba(168,85,247,.95), rgba(90,167,255,.55));">✨</div><b>Aktivitet</b></div>
+                        </div>
+
+                        <div class="rightColNote">
+                          <div style="font-weight:950;letter-spacing:.12em;text-transform:uppercase;opacity:.9;">Den fælles sandhed</div>
+                          Når hub’en er synlig, forsvinder friktionen.
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+
+                <div class="hardware">
+                  <div class="cam"></div>
+                  <div class="btnTop"></div>
                 </div>
               </div>
             </div>
 
-            <!-- Tablet (IMPORTANT FIX):
-                 Use CSSDevices landscape helper + fixed-screen.
-                 This prevents the rotated/clipped UI you see now. -->
-            <div class="tabletMount">
-              <div class="cd-ipad cd-silver cd-center cd-scale-80 cd-landscape-right cd-landscape-fixed-screen">
-                <div class="cd-body">
-                  <div class="cd-camera"></div>
-                  <div class="cd-home"></div>
-                  <div class="cd-screen">
-                    <div class="ui uiTablet">
-                      <div class="uiTop">
-                        <div class="uiDate">
-                          <b>Wall Mode · Tirsdag</b>
-                          <span>Overblik for hele familien</span>
-                        </div>
-                        <div class="uiActions">
-                          <div class="chip">Hjælp</div>
-                          <div class="chip">Admin</div>
-                        </div>
-                      </div>
-
-                      <div class="tabletGrid">
-                        <div class="leftCol">
-                          <div class="card span2">
-                            <div class="cardHead">
-                              <b>Aftaler</b>
-                              <span class="badge">Næste 3</span>
-                            </div>
-                            <div class="event">
-                              <div class="dateBox"><small>tir</small><span>20</span></div>
-                              <div class="eventTxt">
-                                <b>Tandlæge · Alma</b>
-                                <small><span class="pillDot" style="background: rgba(34,197,94,.95); box-shadow:0 0 0 6px rgba(34,197,94,.16)"></span> 15:10</small>
-                              </div>
-                            </div>
-                            <div class="event">
-                              <div class="dateBox"><small>tir</small><span>20</span></div>
-                              <div class="eventTxt">
-                                <b>Fodbold</b>
-                                <small><span class="pillDot"></span> 17:30</small>
-                              </div>
-                            </div>
-                            <div class="event">
-                              <div class="dateBox"><small>ons</small><span>21</span></div>
-                              <div class="eventTxt">
-                                <b>Forældremøde</b>
-                                <small><span class="pillDot" style="background: rgba(168,85,247,.95); box-shadow:0 0 0 6px rgba(168,85,247,.16)"></span> 19:00</small>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="card">
-                            <div class="cardHead">
-                              <b>Madplan</b>
-                              <span class="badge" style="border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.10);">i aften</span>
-                            </div>
-                            <div class="mealBig" style="flex:1;">
-                              <small>I aften</small>
-                              <b>Hakkebøf, løg, skysovs — klar på 25 min</b>
-                              <div style="margin-top:6px; font-size:10px; opacity:.65; font-weight:900; letter-spacing:.14em; text-transform:uppercase;">
-                                Pantry + indkøb integreret
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="card">
-                            <div class="cardHead">
-                              <b>Opgaver</b>
-                              <span class="badge" style="border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.10);">3 åbne</span>
-                            </div>
-                            <div style="display:grid; gap:8px;">
-                              <div class="event" style="padding:10px 12px;">
-                                <div class="tileIcon" style="background: var(--green); width:30px; height:30px; border-radius:12px;">✅</div>
-                                <div class="eventTxt">
-                                  <b>Støvsuge køkken</b>
-                                  <small style="opacity:.55;">Tildelt: Far</small>
-                                </div>
-                              </div>
-                              <div class="event" style="padding:10px 12px;">
-                                <div class="tileIcon" style="background: var(--emerald); width:30px; height:30px; border-radius:12px;">🧺</div>
-                                <div class="eventTxt">
-                                  <b>Tøjvask</b>
-                                  <small style="opacity:.55;">Tildelt: Mor</small>
-                                </div>
-                              </div>
-                              <div class="event" style="padding:10px 12px;">
-                                <div class="tileIcon" style="background: var(--amber); width:30px; height:30px; border-radius:12px;">⭐</div>
-                                <div class="eventTxt">
-                                  <b>Pakkeliste i morgen</b>
-                                  <small style="opacity:.55;">Skole</small>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="rightCol">
-                          <h3><span class="spark"></span> Apps & værktøjer</h3>
-
-                          <div class="apps" style="grid-template-columns: repeat(2, 1fr); gap:10px;">
-                            <div class="app"><div class="tileIcon" style="background: var(--blue);">📅</div><b>Kalender</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--orange);">🍽️</div><b>Madplan</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--green);">✅</div><b>Opgaver</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--emerald);">🛒</div><b>Indkøb</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--rose);">🎒</div><b>Skole</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--amber);">⭐</div><b>Ønsker</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--indigo);">✨</div><b>Aktivitet</b></div>
-                            <div class="app"><div class="tileIcon" style="background: var(--purple);">📖</div><b>Historie</b></div>
-                          </div>
-
-                          <div style="margin-top:auto; padding-top:8px; border-top:1px solid rgba(255,255,255,.10); color: rgba(247,248,255,.62); font-size:11px; line-height:1.7;">
-                            <div style="font-weight:950; letter-spacing:.12em; text-transform:uppercase; opacity:.9;">Alt samlet</div>
-                            Mindre “husk lige…” — mere ro. Wall Mode gør hub’en synlig for alle.
-                          </div>
-                        </div>
-                      </div>
-
-                    </div><!-- /uiTablet -->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /devices -->
-        </div><!-- /stageInner -->
-      </div><!-- /stage -->
-
-      <section id="download" style="margin-top:18px;">
-        <div class="nav" style="justify-content:flex-start;">
-          <a class="pill primary" id="appstoreBtn" href="#" target="_blank" rel="noopener">App Store</a>
-          <a class="pill" id="playstoreBtn" href="#" target="_blank" rel="noopener">Google Play</a>
+          </div>
         </div>
-      </section>
+      </div>
 
+      <div class="caption">
+        <strong>Én hub.</strong> På telefonen når du er på farten — på væggen når familien er samlet.
+        Når alle kan se planen, forsvinder friktionen.
+      </div>
+
+      <footer>
+        <div>© <span id="y"></span> Plurima — Family Hub</div>
+        <div style="opacity:.85">Pearl-clean. Simple. Sofistikeret.</div>
+      </footer>
     </section>
-
-    <footer>
-      <div>© <span id="y"></span> Plurima — Family Hub</div>
-      <div style="opacity:.85">Simple. Sofistikeret. Best-in-market.</div>
-    </footer>
   </div>
 
   <script>
+    // SÆT DINE RIGTIGE LINKS HER:
     const APP_STORE_URL = "https://example.com/appstore";
     const PLAY_STORE_URL = "https://example.com/playstore";
+
     document.getElementById("appstoreBtn").href = APP_STORE_URL;
     document.getElementById("playstoreBtn").href = PLAY_STORE_URL;
+
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
